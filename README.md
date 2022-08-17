@@ -14,3 +14,5 @@ pnpm init
 pnpm install vue typescript
 ```
 因为 vue 和 typescript 是开发和上线都需要的，所以安装的时候不需要额外添加其他参数。
+
+shamefully-hoist = true 幽灵依赖
