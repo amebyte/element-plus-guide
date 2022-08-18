@@ -37,3 +37,12 @@ packages:
   - docs # 存放组件文档
   - "packages/**"
 ```
+
+
+```
+pnpm install @cobyte/components -w
+
+pnpm install @cobyte/theme-chalk -w
+
+pnpm install @cobyte/utils -w
+```

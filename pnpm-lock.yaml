@@ -1,12 +1,20 @@
 lockfileVersion: 5.4
 
-specifiers:
-  typescript: ^4.7.4
-  vue: ^3.2.37
+importers:
 
-dependencies:
-  typescript: registry.npmmirror.com/typescript/4.7.4
-  vue: registry.npmmirror.com/vue/3.2.37
+  .:
+    specifiers:
+      '@cobyte/components': workspace:^1.0.0
+      '@cobyte/theme-chalk': workspace:^1.0.0
+      '@cobyte/utils': workspace:^1.0.0
+      typescript: ^4.7.4
+      vue: ^3.2.37
+    dependencies:
+      '@cobyte/components': link:packages/components
+      '@cobyte/theme-chalk': link:packages/theme-chalk
+      '@cobyte/utils': link:packages/utils
+      typescript: registry.npmmirror.com/typescript/4.7.4
+      vue: registry.npmmirror.com/vue/3.2.37
 
 packages:
 

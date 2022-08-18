@@ -11,6 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@cobyte/components": "workspace:*",
+    "@cobyte/theme-chalk": "workspace:*",
+    "@cobyte/utils": "workspace:*",
     "typescript": "^4.7.4",
     "vue": "^3.2.37"
   }
