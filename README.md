@@ -22,3 +22,18 @@ TypeScript 初始化配置文件
 ```
 pnpm tsc --init
 ```
+
+配置 pnpm 的 monorepo 环境
+
+
+```
+pnpm-workspace.yaml
+```
+可以在 pnpm-workspace.yaml 配置文件中指定这个仓库中有多少个包
+
+```
+packages:
+  - play # 存放组件测试的代码
+  - docs # 存放组件文档
+  - "packages/**"
+```
