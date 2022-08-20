@@ -48,3 +48,8 @@ pnpm install @cobyte/theme-chalk -w
 
 pnpm install @cobyte/utils -w
 ```
+
+
+```
+pnpm create vite play --template vue-ts
+```
