@@ -7,7 +7,7 @@
         "moduleResolution": "node", // 安装node 模块来解析
         "esModuleInterop": true, // 支持es6, commonjs 模块
         "jsx": "preserve", // jsx 不转
-        "noLib": true, // 不处理类库
+        // "noLib": true, // 不处理类库
         "target": "ES6", // 遵循ES6
         "sourceMap": true, // 
         "lib": ["ESNext", "DOM"], // 编译时用的库

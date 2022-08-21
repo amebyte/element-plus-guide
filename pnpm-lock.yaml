@@ -7,12 +7,14 @@ importers:
       '@cobyte/components': workspace:*
       '@cobyte/theme-chalk': workspace:*
       '@cobyte/utils': workspace:*
+      '@types/node': '*'
       typescript: ^4.7.4
       vue: ^3.2.37
     dependencies:
       '@cobyte/components': link:packages/components
       '@cobyte/theme-chalk': link:packages/theme-chalk
       '@cobyte/utils': link:packages/utils
+      '@types/node': registry.npmmirror.com/@types/node/18.7.8
       typescript: registry.npmmirror.com/typescript/4.7.4
       vue: registry.npmmirror.com/vue/3.2.37
 
@@ -83,6 +85,12 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  registry.npmmirror.com/@types/node/18.7.8:
+    resolution: {integrity: sha512-/YP55EMK2341JkODUb8DM9O0x1SIz2aBvyF33Uf1c76St3VpsMXEIW0nxuKkq/5cxnbz0RD9cfwNZHEAZQD3ag==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.7.8.tgz}
+    name: '@types/node'
+    version: 18.7.8
+    dev: false
 
   registry.npmmirror.com/@vitejs/plugin-vue/3.0.3_vite@3.0.9+vue@3.2.37:
     resolution: {integrity: sha512-U4zNBlz9mg+TA+i+5QPc3N5lQvdUXENZLO2h0Wdzp56gI1MWhqJOv+6R+d4kOzoaSSq6TnGPBdZAXKOe4lXy6g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vitejs/plugin-vue/-/plugin-vue-3.0.3.tgz}
