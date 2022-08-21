@@ -17,5 +17,8 @@
     "@types/node": "*",
     "typescript": "^4.7.4",
     "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "unplugin-vue-define-options": "^0.10.0"
   }
 }

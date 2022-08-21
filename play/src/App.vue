@@ -1,9 +1,10 @@
 <script setup lang="ts">
-
+import Icon from '@cobyte/components/icon/src/icon.vue'
+console.log('Icon', Icon)
 </script>
 
 <template>
-    test
+    
 </template>
 
 <style scoped>

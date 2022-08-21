@@ -56,3 +56,7 @@ pnpm create vite play --template vue-ts
 
 通过 JavaScript 实现 BEM 规范
 
+
+```
+pnpm install unplugin-vue-define-options -D -w
+```
