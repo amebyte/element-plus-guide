@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import Icon from '@cobyte/components/icon'
+import CIcon from '@cobyte/components/icon'
 
 const plugins = [
-    Icon
+    CIcon
 ]
 
 const app = createApp(App)

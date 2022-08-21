@@ -9,9 +9,9 @@ import { computed } from 'vue'
 import { createNamespace } from '@cobyte/utils/create'
 import { iconProps } from './icon'
 defineOptions({
-    name: 'icon'
+    name: 'c-icon'
 })
-const bem = createNamespace('icon')
+const bem = createNamespace('c-icon')
 const props = defineProps(iconProps)
 
 const style = computed(() => {
