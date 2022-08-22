@@ -18,6 +18,7 @@ pnpm install vue typescript
 因为 vue 和 typescript 是开发和上线都需要的，所以安装的时候不需要额外添加其他参数。
 
 shamefully-hoist = true 幽灵依赖
+“幽灵依赖” 指的是 项目中使用了一些 没有被定义在其 package.json 文件中 的包。
 
 TypeScript 初始化配置文件
 
