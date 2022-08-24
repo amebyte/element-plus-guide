@@ -1,4 +1,4 @@
-# pnpm-monorepo-ui
+# 从 Vue3 源码入门理解 pnpm 的 monorepo 到以 pnpm 构建 monorepo 环境搭建组件库工程化实战
 
 什么是 Monorepo ?
 Monorepo 其实不是一个新的概念，在软件工程领域，它已经有着十多年的历史了。概念上很好理解，就是把多个项目放在一个仓库里面，相对立的是传统的 MultiRepo 模式，即每个项目对应一个单独的仓库来分散管理。
@@ -21,21 +21,6 @@ pnpm init
 ```
 然后把 package.json 中的 name 属性删掉，并且添加一个 `"private": true` 属性，因为它是不需要发布的。
 
-接下来安装一些我们所需的依赖。
-
-```
-pnpm install vue typescript
-```
-因为 vue 和 typescript 是开发和线上都需要的，所以安装的时候不需要额外添加其他参数。
-
-shamefully-hoist = true 幽灵依赖
-“幽灵依赖” 指的是 项目中使用了一些 没有被定义在其 package.json 文件中 的包。
-
-TypeScript 初始化配置文件
-
-```
-pnpm tsc --init
-```
 
 配置 pnpm 的 monorepo 环境
 
@@ -50,6 +35,21 @@ packages:
   - play # 存放组件测试的代码
   - docs # 存放组件文档
   - "packages/**"
+```
+
+接下来安装一些我们所需的依赖。
+
+```
+pnpm install vue typescript @types/node -D -w
+```
+因为 `vue` 、 `typescript` 和 `@types/node`  只是开发环境需要的，所以安装的时候需要添加一个 `-D` 参数表示安装到开发环境。
+
+TypeScript 初始化配置文件
+因为我们使用了 TypeScript，这样我们想要去校验我们的代码，让我们代码有提示，并且可以按照一些规则来解析我们的语法，给我们更友好的提示，我们就需要去初始化一下这个 TypeScript 配置命令。
+又因为我们安装了 typescript，所以在 `node_modules` 目录下 `bin` 目录里面就会存在一个 tsc 的命令，这个命令，就可以帮我们进行初始化，我们可以使用 `npm tsc --init` 来初始化，也可以使用 `pnpm tsc --init` 那么执行这个命令，它就会去 `node_modules` 目录下 `bin` 目录找这个 tsc 命令进行执行。
+
+```
+pnpm tsc --init
 ```
 
 
@@ -75,3 +75,5 @@ pnpm install unplugin-vue-define-options -D -w
 
 ### 幽灵依赖详解
 
+shamefully-hoist = true 幽灵依赖
+“幽灵依赖” 指的是 项目中使用了一些没有被定义在其 package.json 文件中 的包。

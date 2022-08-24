@@ -12,12 +12,12 @@
   "dependencies": {
     "@cobyte/components": "workspace:*",
     "@cobyte/theme-chalk": "workspace:*",
-    "@cobyte/utils": "workspace:*",
-    "@types/node": "*",
-    "typescript": "^4.7.4",
-    "vue": "^3.2.37"
+    "@cobyte/utils": "workspace:*"
   },
   "devDependencies": {
-    "unplugin-vue-define-options": "^0.10.0"
+    "@types/node": "*",
+    "typescript": "^4.7.4",
+    "unplugin-vue-define-options": "^0.10.0",
+    "vue": "^3.2.37"
   }
 }
