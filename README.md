@@ -91,3 +91,43 @@ nvm install 4.0.0
  ![](./md/npm-taobao.png)
 
  npm 的淘宝源的镜像地址[传送门](https://registry.npmmirror.com/binary.html?path=node/npm/)。同时在这个地址上也可以手动下载 node 其他版本的包，然后进行手动设置。
+
+然后对下载好的 npm 包进行解压。
+ ![](./md/unzip.png)
+
+然后复制到对应的 nvm 目录中对应的 node 包目录下。
+
+ ![](./md/nvm-dir.png)
+
+可以看到我的 nvm 目录下存在很多过版本的 node 目录了，因为我安装了很多个不同版本的 node，那么我们现在需要把刚刚下载解压之后的 npm 包复制到 v4.0.0 的目录中。
+
+ ![](./md/npm-cmd.png)
+
+这个时候我们就可以看到 node4 的版本目录 v4.0.0 中就存在了一个 npm.cmd 文件，这个是就 npm 的命令文件。
+
+至此我们的 Node4 的版本环境就设置完毕了，我们通过 nvm ls 命令查看所有的 node 版本的时候，我们可以看到出现 4.0.0 版本了。
+ ![](./md/nvm-ls.png)
+
+然后我们通过 nvm use 4.0.0 命令进行切换 Node4 的版本。
+
+我们再次通过 nvm ls 命令查看所有的 node 版本的时候，我们可以看到出现 4.0.0 版本是当前正在使用的版本了。
+
+ ![](./md/nvm-dir2.png)
+
+我们通过 node -v 查看。
+
+ ![](./md/node-v.png)
+
+我们通过 npm -v 查看。
+
+ ![](./md/npm-v.png)
+
+ 我们可以看到我们的环境已经成功设置为 Node 版本为 4.0， npm 版本为 1.4.9 版本了。
+
+注意：我上述设置是在 windows 环境下设置的，mac 的同学也可以进行相同的设置。
+
+这个时候我们随便找一个目录进行 package 初始化： `npm init -y` ，接着安装一个 express， `npm install express`。
+
+ ![](./md/node_modules.png)
+
+我们可以到首先项目本身有一个 `node_modules` 目录，然后 express 也有一个 `node_modules` 目录，然后 express 里的一些包的目录底下也存在 `node_modules` 目录，就是一个无限套娃的状况。
