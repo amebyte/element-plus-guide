@@ -75,4 +75,19 @@ pnpm install unplugin-vue-define-options -D -w
 ### 幽灵依赖详解
 
 shamefully-hoist = true 幽灵依赖
-“幽灵依赖” 指的是 项目中使用了一些没有被定义在其 package.json 文件中 的包。
+“幽灵依赖” 指的是 项目中使用了一些没有被定义在项目中的 package.json 文件中的包。
+我们首先要搞清清楚幽灵依赖是怎么来的，要从 npm 的包管理器的历史说起
+
+我们先通过 nvm 的 node 版本管理工具把 node 版本回退到 node4.0版本
+```
+nvm install 4.0.0
+```
+然后在安装对应版本的 npm 包的时候，报错了。
+
+![](./md/npm-install-error.png)
+
+然后我们通过 npm 的淘宝源的镜像地址进行手动下载安装。
+
+ ![](./md/npm-taobao.png)
+
+ npm 的淘宝源的镜像地址[传送门](https://registry.npmmirror.com/binary.html?path=node/npm/)。同时在这个地址上也可以手动下载 node 其他版本的包，然后进行手动设置。
