@@ -177,6 +177,8 @@ pnpm install echarts
 
 这样一来我们就清楚了，项目的 package.json 文件中显示声明的依赖则会平铺在 `node_modules` 根目录下，而依赖中依赖则放在 `node_modules` 根目录下的 .pnpm 的目录中 `node_modules` 目录下。这样由于 tslib、zrender 包没有直接暴露在 `node_modules` 根目录下，则项目中就不能再进行引用使用了，这样也就解决了幽灵依赖的问题。
 
+ 我们发现已经不能像之前那样不安装 zrender 包，也能进行引用使用了，这样一来就可以确保不会产生幽灵依赖的问题了。![](./md/pnpm-zrender.png)
+
 我们在 element-plus 项目根目录下发现了一个名叫：`.npmrc` 文件，里面的内容则是：
 
 ```
@@ -185,6 +187,23 @@ shamefully-hoist = true
 
 那么这个配置的作用是什么呢？我们在 pnpm 的官网中找到了答案了。
 
- 我们在 pnpm 的官网中找到了这么一段内容。![](./md/shamefully-hoist.png)
+ 我们在 pnpm 的官网配置 .npmrc 的选项中找到了相关的说明。
+
+![](./md/shamefully-hoist-npmrc.png)
+
+意思是：默认情况下，pnpm 创建半严格的 `node_modules`，这意味着在项目中可以访问未声明的依赖，但 `node_modules` 之外的模块不能访问。通过这种设置，大多数包都可以正常工作。但是，如果某些工具包需要将所有的依赖提升到位于 `node_modules` 的根目录中才起作用时，则可以将设置 `shamefully-hoist = true` 来提升所有的依赖。
+
+另外我们也在 pnpm 的官网推荐的博客中也找到了相关介绍。
+
+![](./md/shamefully-hoist.png)
 
 意思就说有一些工具包在 pnpm 的默认设置下是无法运行的，必须把虚拟仓库中的依赖进行提升到 `node_modules` 根目录下。
+
+ 我们按照官方的指引在项目根目录下添加一个 .npmrc 的文件，然后设置内容为 `shamefully-hoist = true`，然后再重新 pnpm install 安装依赖，然后我们发现  `node_modules` 根目录下又出现了 tslib、zrender 包目录。
+
+![](./md/npmrc.png)
+
+然后又可以像 npm 安装那样进行引用未在 package.json 里面进行声明的依赖了。
+
+ ![](./md/renode.png)
+
