@@ -72,7 +72,7 @@ pnpm create vite play --template vue-ts
 pnpm install unplugin-vue-define-options -D -w
 ```
 
-### 幽灵依赖详解
+### 幽灵依赖的前世今生
 
 shamefully-hoist = true 幽灵依赖
 “幽灵依赖” 指的是 项目中使用了一些没有被定义在项目中的 package.json 文件中的包。
@@ -126,7 +126,7 @@ nvm install 4.0.0
 
 注意：我上述设置是在 windows 环境下设置的，mac 的同学也可以进行相同的设置。
 
-这个时候我们随便找一个目录进行 package 初始化： `npm init -y` ，接着安装一个 Vue1， `npm install vue@1.0.0`。
+这个时候我们随便找一个目录进行 package 初始化： `npm init -y` ，接着安装一个 Vue1，`npm install vue@1.0.0`。
 
  ![](./md/node_modules.png)
 
@@ -148,7 +148,7 @@ npm install echarts
 
  ![](./md/echarts-node_modules.png)
 
-然后我们发现除了我们安装的  `echarts` 包之外，还多了两个包：tslib、zrender。
+然后我们发现除了我们安装的 `echarts` 包之外，还多了两个包：tslib、zrender。
 
 - tslib 这是的运行时库，其中包含所有 TypeScript 辅助函数。 
 - zrender.js 是可视化框架 Echarts.js 的 2D 绘制引擎，支持 canvas\svg\vml 等多种渲染方式。
@@ -158,3 +158,33 @@ npm install echarts
 ![](./md/zrender.png)
 
 那么有一天当我们不再需要使用 echarts 这个包的时候，我们从项目的 package.json 文件中依赖声明中删除之后，那么我们如果在项目中引用了 zrender.js 就会报错，因为 zrender 包会随着主包 echarts 的删除而删除了。
+
+幽灵依赖的这个问题，随着最近火热的 pnpm 新一代的包管理器的出现而得到解决。
+我们删除刚刚安装 echarts 包出现的 `node_modules` 目录，然后重新使用 pnpm 进行安装。
+
+```
+pnpm install echarts
+```
+然后我们再看看项目中的 `node_modules` 目录结构。
+
+ ![](./md/pnpm-node_modules.png)
+
+我们发现只剩下一个我们手动安装的 echarts 包的目录和一个 .pnpm 的目录，而刚才通过 npm 安装出现的 tslib、zrender 包则不见了。
+
+然后我们展开 .pnpm 目录中 `node_modules` 目录，则发现了 tslib、zrender 包。
+
+ ![](./md/pnpm.pnpm-node_modules.png)
+
+这样一来我们就清楚了，项目的 package.json 文件中显示声明的依赖则会平铺在 `node_modules` 根目录下，而依赖中依赖则放在 `node_modules` 根目录下的 .pnpm 的目录中 `node_modules` 目录下。这样由于 tslib、zrender 包没有直接暴露在 `node_modules` 根目录下，则项目中就不能再进行引用使用了，这样也就解决了幽灵依赖的问题。
+
+我们在 element-plus 项目根目录下发现了一个名叫：`.npmrc` 文件，里面的内容则是：
+
+```
+shamefully-hoist = true
+```
+
+那么这个配置的作用是什么呢？我们在 pnpm 的官网中找到了答案了。
+
+ 我们在 pnpm 的官网中找到了这么一段内容。![](./md/shamefully-hoist.png)
+
+意思就说有一些工具包在 pnpm 的默认设置下是无法运行的，必须把虚拟仓库中的依赖进行提升到 `node_modules` 根目录下。
