@@ -1,4 +1,4 @@
-# 从 Vue3 源码入门理解 pnpm 的 monorepo 到以 pnpm 构建 monorepo 环境搭建组件库工程化实战
+# Element Plus 组件库核心技术揭秘：组件库工程化实战
 
 ### 从 Vue3 源码入门理解 pnpm 的 monorepo
 
@@ -29,6 +29,24 @@ npm install pnpm -g
 ```
 pnpm init
 ```
+得到 package.json 初始内容。
+
+```javascript
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+```
+
 然后把 package.json 中的 name 属性删掉，并且添加一个 `"private": true` 属性，因为它是不需要发布的。
 
 
