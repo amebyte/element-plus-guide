@@ -137,6 +137,10 @@ TypeScript 初始化配置文件
 pnpm tsc --init
 ```
 
+### TypeScript项目引用(project references)
+
+
+
 至此一个 pnpm 的 monorepo 环境就搭建好了。
 
 ```
