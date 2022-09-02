@@ -94,64 +94,6 @@ packages:
 └── pnpm-workspace.yaml
 ```
 
-仓库项目内的包相互调用
 
-`@cobyte/components` 、`@cobyte/theme-chalk` 、`@cobyte/utils` 这几个包要互相进行调用呢，就需要把它们安装到仓库根目录下的 `node_modules` 目录中。
-
-然后我们在根目录下进行安装操作。
-
-```
-pnpm install @cobyte/components -w
-pnpm install @cobyte/theme-chalk -w
-pnpm install @cobyte/utils -w
-```
-
-`-w` 表示安装到共公模块的 packages.json 中，也就是根目录下的 packages.json。
-
-安装后根目录下的 package.json 的内容为：
-
-```javascript
-{
-  "dependencies": {
-    "@cobyte/components": "workspace:*",
-    "@cobyte/theme-chalk": "workspace:*",
-    "@cobyte/utils": "workspace:*"
-  },
-}
-```
-
-workspace:* 后面的 * 表示任意版本。
-
-接下来安装一些我们开发时所需要的依赖。
-
-```
-pnpm install vue typescript @types/node -D -w
-```
-因为 `vue` 、 `typescript` 和 `@types/node`  只是开发环境需要的，所以安装的时候需要添加一个 `-D` 参数表示安装到开发环境，`-w` 表示安装到共公模块的 packages.json 中，也就是根目录下的 packages.json。
-
-TypeScript 初始化配置文件
-因为我们使用了 TypeScript，这样我们想要去校验我们的代码，让我们代码有提示，并且可以按照一些规则来解析我们的语法，给我们更友好的提示，我们就需要去初始化一下这个 TypeScript 配置命令。
-又因为我们安装了 typescript，所以在 `node_modules` 目录下 `bin` 目录里面就会存在一个 tsc 的命令，这个命令，就可以帮我们进行初始化，我们可以使用 `npm tsc --init` 来初始化，也可以使用 `pnpm tsc --init` 那么执行这个命令，它就会去 `node_modules` 目录下 `bin` 目录找这个 tsc 命令进行执行。
-
-```
-pnpm tsc --init
-```
-
-### TypeScript项目引用(project references)
-
-
-
-至此一个 pnpm 的 monorepo 环境就搭建好了。
-
-```
-pnpm create vite play --template vue-ts
-```
-
-通过 JavaScript 实现 BEM 规范
-
-
-```
-pnpm install unplugin-vue-define-options -D -w
-```
 
 
