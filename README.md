@@ -96,4 +96,4 @@ packages:
 
 详细讨论 Vue.js 中的组件化
 
-
+一般在 SFC 的模式组件下我们是不用写 render 选项的，render 选项是由 template 进行编译生成的。
