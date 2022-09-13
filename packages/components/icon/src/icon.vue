@@ -6,7 +6,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { reactive } from '@vue/reactivity'
 import { createNamespace } from '@cobyte/utils/create'
 import { iconProps } from './icon'
 defineOptions({
@@ -22,7 +21,5 @@ const style = computed(() => {
         ...(props.color ? { color: props.color } : {})
     }
 })
-
-const obj = reactive({})
 
 </script>

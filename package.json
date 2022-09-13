@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm -C play dev"
+    "dev": "pnpm -C play dev",
+    "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit"
   },
   "keywords": [],
   "author": "",
