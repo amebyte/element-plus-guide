@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './src/App.vue'
 import CIcon from '@cobyte/components/icon'
 
 const plugins = [
