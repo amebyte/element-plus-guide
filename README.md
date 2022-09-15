@@ -1,3 +1,3 @@
-# Element Plus 组件库核心技术揭秘
+# Element Plus 组件库相关技术揭秘
 
 
