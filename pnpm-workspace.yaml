@@ -1,4 +1,5 @@
 packages:
   - play # 存放组件测试的代码
   - docs # 存放组件文档
-  - "packages/**"
+  - packages/*
+  - internal/*

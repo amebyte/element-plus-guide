@@ -1,6 +1,6 @@
 <template>
   <i :class="bem.b()" :style="style">
-    <slot></slot>
+    <slot />
   </i>
 </template>
 
@@ -17,7 +17,7 @@ const props = defineProps(iconProps)
 const style = computed(() => {
   if (!props.size && !props.color) return {}
   return {
-    ...(props.size ? { 'font-size': props.size + 'px' } : {}),
+    ...(props.size ? { 'font-size': `${props.size}px` } : {}),
     ...(props.color ? { color: props.color } : {}),
   }
 })

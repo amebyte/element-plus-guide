@@ -1,28 +1,35 @@
 {
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play dev",
+    "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json && pretty-quick --branch dev",
     "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@cobyte/components": "workspace:*",
+    "@cobyte/eslint-config": "workspace:*",
     "@cobyte/theme-chalk": "workspace:*",
     "@cobyte/utils": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "*",
-    "@typescript-eslint/eslint-plugin": "^5.37.0",
-    "@typescript-eslint/parser": "^5.37.0",
     "eslint": "^8.23.1",
-    "eslint-plugin-vue": "^9.5.1",
+    "eslint-define-config": "^1.5.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
     "typescript": "^4.7.4",
     "unplugin-vue-define-options": "^0.10.0",
     "vue": "^3.2.37"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"
   }
 }
