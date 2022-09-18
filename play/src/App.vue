@@ -1,13 +1,9 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-<div>
+  <div>
     <c-icon :color="`red`" :size="20">cobyte</c-icon>
-</div>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
