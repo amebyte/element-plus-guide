@@ -12,10 +12,10 @@
     "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit"
   },
   "dependencies": {
-    "@cobyte/components": "workspace:*",
-    "@cobyte/eslint-config": "workspace:*",
-    "@cobyte/theme-chalk": "workspace:*",
-    "@cobyte/utils": "workspace:*"
+    "@cobyte-ui/components": "workspace:*",
+    "@cobyte-ui/eslint-config": "workspace:*",
+    "@cobyte-ui/theme-chalk": "workspace:*",
+    "@cobyte-ui/utils": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "*",
