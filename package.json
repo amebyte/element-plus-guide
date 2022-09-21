@@ -9,7 +9,10 @@
   "scripts": {
     "dev": "pnpm -C play dev",
     "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json && pretty-quick --branch dev",
-    "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit"
+    "runall": "pnpm run typecheck:web && pnpm run typecheck:play",
+    "typecheck": "run-p typecheck:web typecheck:play",
+    "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit",
+    "typecheck:play": "vue-tsc -p tsconfig.play.json --composite false --noEmit"
   },
   "dependencies": {
     "@cobyte-ui/components": "workspace:*",
