@@ -1,11 +1,17 @@
 {
   "extends": "./tsconfig.web.json",
   "compilerOptions": {
-    "composite": true,
-    "lib": ["ES2021", "DOM", "DOM.Iterable"],
-    "types": ["node", "jsdom", "unplugin-vue-define-options"],
-    "skipLibCheck": true
+    "allowJs": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
   },
-  "include": ["packages", "vitest.setup.ts", "typings/env.d.ts"],
-  "exclude": ["node_modules", "dist", "**/*.md"]
+  "include": [
+    "packages",
+    "typings/components.d.ts",
+    "typings/env.d.ts",
+
+    // playground
+    "play/main.ts",
+    "play/env.d.ts",
+    "play/src/**/*"
+  ]
 }
