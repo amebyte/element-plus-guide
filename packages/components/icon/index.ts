@@ -1,6 +1,6 @@
 // 用来整合组件的，最终实现导出组件
 
-import { withInstall } from '@cobyte/utils/with-install'
+import { withInstall } from '@cobyte-ui/utils/with-install'
 import _Icon from './src/icon.vue'
 const Icon = withInstall(_Icon)
 // 可以通过 app.use 来使用，也可以通过 import 方式单独使用
