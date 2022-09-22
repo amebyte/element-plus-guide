@@ -16,7 +16,7 @@
     "rootDir": ".",
     "types": [],
     "paths": {
-      "@element-plus/*": ["packages/*"]
+      "@cobyte-ui/*": ["packages/*"]
     }
   }
 }
