@@ -6,5 +6,5 @@
   // 默认会再继续向外层文件夹「逐层读取」配置文件，最终配置合并成一个。
   // 其中如果多个配置文件里都配置了重复的字段的话，那离给定目录「最近的配置会生效，」 我们也可以在配置文件中添加 root: true 来阻止 ESLint 逐层读取配置。
   "root": true,
-  "extends": ["@cobyte/eslint-config"]
+  "extends": ["@cobyte-ui/eslint-config"]
 }
