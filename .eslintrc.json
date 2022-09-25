@@ -1,4 +1,9 @@
 {
+  // ESLint 搜索配置文件步骤：
+  // 在要检测的文件同一目录里寻找 .eslintrc.* 和 package.json；
+  // 紧接着在父级目录里寻找，一直到文件系统的根目录；
+  // 如果在前两步发现有 root：true 的配置，停止在父级目录中寻找 .eslintrc；
+  // 如果以上步骤都没有找到，则回退到用户主目录 ~/.eslintrc 中自定义的默认配置
   "root": true,
   "extends": ["@cobyte/eslint-config"]
 }
