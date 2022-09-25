@@ -17,11 +17,13 @@ module.exports = defineConfig({
     'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
+  // settings，通过 setting 我们可以向每条 rule 传入一些自定义的配置内容
   settings: {
     'import/resolver': {
       node: { extensions: ['.js', '.mjs', '.ts', '.d.ts', '.tsx'] },
     },
   },
+  // overrides，外侧配置的 rule 一般都是全局生效，通过 overrides，我们可以针对一些文件覆盖一些规则
   overrides: [
     {
       files: ['*.json', '*.json5', '*.jsonc'],
