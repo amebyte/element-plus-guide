@@ -7,6 +7,9 @@ const Icon = withInstall(_Icon)
 export default Icon
 export * from './src/icon'
 
+const b = 123
+b = 56
+
 // 这里添加的类型，可以在模板里面被解析
 declare module 'vue' {
   export interface GlobalComponents {
