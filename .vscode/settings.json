@@ -1,5 +1,26 @@
 {
   "editor.formatOnSave": true,
   "editor.formatOnType": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc"
+  ],
 }
