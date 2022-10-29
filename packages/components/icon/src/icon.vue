@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { createNamespace } from '@cobyte/utils/create'
+import { createNamespace } from '@cobyte-ui/utils/create'
 import { iconProps } from './icon'
 defineOptions({
   name: 'c-icon',
