@@ -13,7 +13,8 @@
     "typecheck": "run-p typecheck:web typecheck:play",
     "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit",
     "typecheck:play": "vue-tsc -p tsconfig.play.json --composite false --noEmit",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "tsct": "tsc -help"
   },
   "dependencies": {
     "@cobyte-ui/components": "workspace:*",
