@@ -1,22 +1,23 @@
 @use 'config';
 
-// BEM support Func
+// 该函数将选择器转化为字符串，并截取指定位置的字符
 @function selectorToString($selector) {
-  $selector: inspect($selector);
-  $selector: str-slice($selector, 2, -2);
+  $selector: inspect($selector); // inspect($value) 返回 $value 的字符串表示形式
+  $selector: str-slice($selector, 2, -2); // str-slice 截取指定字符
   @return $selector;
 }
-
+// 判断父级选择器是否包含'--'
 @function containsModifier($selector) {
   $selector: selectorToString($selector);
 
   @if str-index($selector, config.$modifier-separator) {
+    // str-index返回字符串的第一个索引
     @return true;
   } @else {
     @return false;
   }
 }
-
+// 判断 父级选择器是否包含'.is-'
 @function containWhenFlag($selector) {
   $selector: selectorToString($selector);
 
@@ -26,7 +27,7 @@
     @return false;
   }
 }
-
+// 判断父级是否包含 ':' （用于判断伪类和伪元素）
 @function containPseudoClass($selector) {
   $selector: selectorToString($selector);
 
@@ -36,7 +37,7 @@
     @return false;
   }
 }
-
+// 判断父级选择器（$selector: &），是否包含`--` `.is-`  `：`这三种字符
 @function hitAllSpecialNestRule($selector) {
   @return containsModifier($selector) or containWhenFlag($selector) or
     containPseudoClass($selector);
