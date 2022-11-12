@@ -1,5 +1,5 @@
 import { computed, unref } from 'vue'
-
+// 命名前缀
 export const defaultNamespace = 'el'
 const statePrefix = 'is-'
 
@@ -24,6 +24,7 @@ const _bem = (
 }
 
 export const useNamespace = (block: string) => {
+  // 命名前缀也就是命名空间
   const namespace = computed(() => defaultNamespace)
   const b = (blockSuffix = '') =>
     _bem(unref(namespace), block, blockSuffix, '', '')
