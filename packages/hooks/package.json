@@ -1,7 +1,7 @@
 {
   "name": "@cobyte-ui/hooks",
-  "version": "0.0.5",
-  "description": "Element Plus composables",
+  "version": "1.0.0",
+  "description": "",
   "license": "MIT",
   "main": "index.ts",
   "module": "index.ts",
