@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <c-icon :color="`red`" :size="20">cobyte</c-icon>
+    <c-icon>Icon</c-icon>
   </div>
 </template>
 
