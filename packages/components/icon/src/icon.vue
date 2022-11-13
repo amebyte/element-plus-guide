@@ -8,9 +8,9 @@
 // import { computed } from 'vue'
 import { useNamespace } from '@cobyte-ui/hooks'
 // import { iconProps } from './icon'
-defineOptions({
-  name: 'c-icon',
-})
+// defineOptions({
+//   name: 'c-icon',
+// })
 const bem = useNamespace('icon')
 // const props = defineProps(iconProps)
 

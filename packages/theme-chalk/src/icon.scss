@@ -1,4 +1,5 @@
 @use 'mixins/mixins' as *;
 @include b(icon) {
   background-color: red;
+  color: #fff;
 }
