@@ -2,7 +2,9 @@
 
 // 该函数将选择器转化为字符串，并截取指定位置的字符
 @function selectorToString($selector) {
-  $selector: inspect($selector); // inspect($value) 返回 $value 的字符串表示形式
+  $selector: inspect(
+    $selector
+  ); // inspect(...) 表达式中的内容如果是正常会返回对应的内容，如果发生错误则会弹出一个错误提示。
   $selector: str-slice($selector, 2, -2); // str-slice 截取指定字符
   @return $selector;
 }
@@ -11,13 +13,13 @@
   $selector: selectorToString($selector);
 
   @if str-index($selector, config.$modifier-separator) {
-    // str-index返回字符串的第一个索引
+    // str-index 返回字符串的第一个索引
     @return true;
   } @else {
     @return false;
   }
 }
-// 判断 父级选择器是否包含'.is-'
+// 判断父级选择器是否包含'.is-'
 @function containWhenFlag($selector) {
   $selector: selectorToString($selector);
 
@@ -37,7 +39,7 @@
     @return false;
   }
 }
-// 判断父级选择器（$selector: &），是否包含`--` `.is-`  `：`这三种字符
+// 判断父级选择器，是否包含`--` `.is-`  `：`这三种字符
 @function hitAllSpecialNestRule($selector) {
   @return containsModifier($selector) or containWhenFlag($selector) or
     containPseudoClass($selector);
