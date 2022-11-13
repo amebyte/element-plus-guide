@@ -3,7 +3,7 @@
 @use 'config' as *;
 @use 'function' as *;
 
-// BEM
+// 定义 Block
 @mixin b($block) {
   $B: $namespace + '-' + $block !global;
 
@@ -11,7 +11,7 @@
     @content;
   }
 }
-
+// 定义 Element
 @mixin e($element) {
   $E: $element !global;
   $selector: &;
@@ -41,7 +41,7 @@
     }
   }
 }
-
+// 定义修改器
 @mixin m($modifier) {
   $selector: &;
   $currentSelector: '';
