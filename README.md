@@ -7,4 +7,4 @@
 3. [ESLint 核心原理剖析](https://juejin.cn/post/7153659360177029150)
 4. [ESLint 技术原理与实战及代码规范自动化详解](https://juejin.cn/post/7157743898939359262)
 5. [从终端命令解析器说起谈谈 npm 包管理工具的运行原理](https://juejin.cn/post/7161063570594070559)
-6. [CSS 架构系统之]
+6. [Element Plus 组件库相关技术揭秘：6. CSS 架构模式之 BEM 在组件库中的实践](https://juejin.cn/post/7165503808217284616)
