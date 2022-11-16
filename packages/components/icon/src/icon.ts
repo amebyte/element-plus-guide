@@ -1,10 +1,10 @@
 // 这里准备组件相关的属性 和 ts 的类型
 
-import type { ExtractPropTypes, PropType } from 'vue'
+// import type { ExtractPropTypes, PropType } from 'vue'
 
-export const iconProps = {
+const props = {
   color: String,
-  size: [Number, String] as PropType<number | string>,
-} as const
+  size: [Number, String],
+}
 
-export type IconProps = ExtractPropTypes<typeof iconProps>
+// export type Props = ExtractPropTypes<typeof props>
