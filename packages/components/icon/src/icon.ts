@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
 import type Icon from './icon.vue'
-const iconProps = {
+export const iconProps = {
   color: String,
   size: [Number, String] as PropType<number | string>,
 } as const
