@@ -6,19 +6,22 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { addUnit, isUndefined } from '@cobyte-ui/utils'
 import { useNamespace } from '@cobyte-ui/hooks'
 import { iconProps } from './icon'
+import type { CSSProperties } from 'vue'
 defineOptions({
   name: 'ELIcon',
 })
 const bem = useNamespace('icon')
 const props = defineProps(iconProps)
 
-const style = computed(() => {
+const style = computed<CSSProperties>(() => {
   if (!props.size && !props.color) return {}
+
   return {
-    ...(props.size ? { 'font-size': `${props.size}px` } : {}),
-    ...(props.color ? { color: props.color } : {}),
+    fontSize: isUndefined(props.size) ? undefined : addUnit(props.size),
+    '--color': props.color,
   }
 })
 </script>
