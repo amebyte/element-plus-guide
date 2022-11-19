@@ -20,7 +20,8 @@
     "@cobyte-ui/components": "workspace:*",
     "@cobyte-ui/eslint-config": "workspace:*",
     "@cobyte-ui/theme-chalk": "workspace:*",
-    "@cobyte-ui/utils": "workspace:*"
+    "@cobyte-ui/utils": "workspace:*",
+    "@vueuse/core": "^9.5.0"
   },
   "devDependencies": {
     "@cobyte-ui/hooks": "workspace:^1.0.0",
