@@ -10,9 +10,10 @@
     "dev": "pnpm -C play dev",
     "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json && pretty-quick --branch dev",
     "runall": "pnpm run typecheck:web && pnpm run typecheck:play",
-    "typecheck": "run-p typecheck:web typecheck:play",
+    "typecheck": "run-p typecheck:web typecheck:play typecheck:node",
     "typecheck:web": "vue-tsc -p tsconfig.web.json --composite false --noEmit",
     "typecheck:play": "vue-tsc -p tsconfig.play.json --composite false --noEmit",
+    "typecheck:node": "tsc -p tsconfig.node.json --noEmit",
     "prepare": "husky install",
     "test": "npm-link-test"
   },
