@@ -1,5 +1,5 @@
 <template>
-  <i :class="bem.b()" :style="style">
+  <i :class="bem.b()" :style="style" v-bind="$attrs">
     <slot />
   </i>
 </template>

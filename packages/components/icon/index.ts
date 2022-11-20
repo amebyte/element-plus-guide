@@ -1,10 +1,10 @@
 // 用来整合组件的，最终实现导出组件
 
 // import { withInstall } from '@cobyte-ui/utils'
-import Icon from './src/icon.vue'
+import ElIcon from './src/icon.vue'
 // const Icon = withInstall(_Icon)
 // 可以通过 app.use 来使用，也可以通过 import 方式单独使用
-export default Icon
+export default ElIcon
 // export * from './src/icon'
 
 // const b = 123
