@@ -11,7 +11,7 @@ import { useNamespace } from '@cobyte-ui/hooks'
 import { iconProps } from './icon'
 import type { CSSProperties } from 'vue'
 defineOptions({
-  name: 'ELIcon',
+  name: 'ElIcon',
 })
 const bem = useNamespace('icon')
 const props = defineProps(iconProps)
