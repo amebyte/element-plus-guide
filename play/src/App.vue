@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-icon :color="'green'" :size="12">Icon</el-icon>
+    <el-icon :color="'green'" :size="15">Icon</el-icon>
   </div>
 </template>
 <script setup lang="ts">
