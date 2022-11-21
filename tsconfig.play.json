@@ -13,6 +13,6 @@
     // playground
     "play/main.ts",
     "play/env.d.ts",
-    "play/src/**/*"
+    "play/src/**/*" // 双 ** 就是不管多少层 folder 单 * 匹配任意数量的任何字符，包括无
   ]
 }
