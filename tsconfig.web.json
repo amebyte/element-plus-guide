@@ -7,7 +7,7 @@
     "types": ["unplugin-vue-define-options"],
     "skipLibCheck": true
   },
-  "include": ["packages"],
+  "include": ["packages", "typings/components.d.ts", "typings/env.d.ts"],
   "exclude": [
     "node_modules",
     "**/dist",
