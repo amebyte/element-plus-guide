@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-icon :color="'green'" :size="15" class="iconfont iconlogistics-car" />
+    <el-button>按钮</el-button>
   </div>
 </template>
 <script setup lang="ts"></script>
