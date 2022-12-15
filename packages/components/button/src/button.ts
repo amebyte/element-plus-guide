@@ -1,26 +1,13 @@
 import type { ExtractPropTypes, PropType } from 'vue'
 import type Button from './button.vue'
 
-// size 组件大小
-
-// type 颜色展现类型
-
-// round 是否为圆角
-
-// loading 是否按钮正在加载
-
-// disabled 是否禁用按钮
-
-// native-type 原始类型
-
-// 插槽
-
+// 点击事件
 export const buttonEmits = {
   click: (evt: MouseEvent) => evt instanceof MouseEvent,
 }
 
 export type ButtonEmits = typeof buttonEmits
-
+// 使用 type 来定义按钮的样式
 export type ButtonType =
   | ''
   | 'default'
@@ -30,8 +17,9 @@ export type ButtonType =
   | 'info'
   | 'danger'
   | 'text'
-
+// native-type 原始类型
 export type ButtonNativeType = 'button' | 'submit' | 'reset'
+// size 组件大小
 export type ButtonSize = '' | 'default' | 'small' | 'large'
 
 export const buttonProps = {
@@ -44,9 +32,10 @@ export const buttonProps = {
     default: 'button',
   },
   disabled: Boolean,
-  loading: Boolean,
   autofocus: Boolean,
   round: Boolean,
+  plain: Boolean,
+  circle: Boolean,
 } as const
 
 export type ButtonProps = ExtractPropTypes<typeof buttonProps>
