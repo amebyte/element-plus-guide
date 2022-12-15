@@ -17,11 +17,11 @@ export type ButtonType =
   | 'info'
   | 'danger'
   | 'text'
-// native-type 原始类型
+// type 原始类型
 export type ButtonNativeType = 'button' | 'submit' | 'reset'
 // size 组件大小
 export type ButtonSize = '' | 'default' | 'small' | 'large'
-
+// 定义 props
 export const buttonProps = {
   size: String as PropType<ButtonSize>,
   type: {
@@ -37,6 +37,7 @@ export const buttonProps = {
   plain: Boolean,
   circle: Boolean,
 } as const
-
+// Props 类型
 export type ButtonProps = ExtractPropTypes<typeof buttonProps>
+// Button 组件实例类型
 export type ButtonInstance = InstanceType<typeof Button>
