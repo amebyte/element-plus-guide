@@ -1,10 +1,20 @@
 <template>
   <div>
-    <el-icon :color="'green'" :size="15" class="iconfont iconlogistics-car" />
     <el-button>按钮</el-button>
+    <el-button type="primary">Primary</el-button>
+    <el-button type="success" plain>Success</el-button>
+    <el-button type="info" round>Info</el-button>
+    <el-button type="warning" circle>Warning</el-button>
+    <el-button type="danger" disabled>Danger</el-button>
+    <el-button size="large">按钮</el-button>
+    <el-button size="small" @click="handlerClick">按钮</el-button>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const handlerClick = (e: Event) => {
+  console.log(e)
+}
+</script>
 <style>
 @font-face {
   font-family: 'iconfont';

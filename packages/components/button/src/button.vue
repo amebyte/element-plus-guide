@@ -13,6 +13,7 @@
     :disabled="disabled"
     :autofocus="autofocus"
     :type="nativeType"
+    @click="handleClick"
   >
     <slot />
   </button>
@@ -28,11 +29,16 @@ defineOptions({
 // 定义 Props
 defineProps(buttonProps)
 // 定义 emit
-defineEmits(buttonEmits)
+const emit = defineEmits(buttonEmits)
 // classname 的 BEM 命名
 const ns = useNamespace('button')
 // button ref
 const _ref = ref<HTMLButtonElement>()
+// 点击事件函数
+const handleClick = (evt: MouseEvent) => {
+  emit('click', evt)
+}
+
 // 组件暴露自己的属性以及方法，去供外部使用
 defineExpose({
   ref: _ref,
