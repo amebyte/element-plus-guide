@@ -7,13 +7,16 @@
     <el-button type="warning" circle>Warning</el-button>
     <el-button type="danger" disabled>Danger</el-button>
     <el-button size="large">按钮</el-button>
-    <el-button size="small" @click="handlerClick">按钮</el-button>
+    <el-button ref="buttonRef" size="small">按钮</el-button>
   </div>
 </template>
 <script setup lang="ts">
-const handlerClick = (e: Event) => {
-  console.log(e)
-}
+import { nextTick, ref } from 'vue'
+
+const buttonRef = ref()
+nextTick(() => {
+  console.log('buttonRef', buttonRef.value.ref)
+})
 </script>
 <style>
 @font-face {
