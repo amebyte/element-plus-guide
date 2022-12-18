@@ -7,6 +7,7 @@ importers:
       '@cobyte-ui/eslint-config': workspace:*
       '@cobyte-ui/hooks': workspace:^1.0.0
       '@cobyte-ui/theme-chalk': workspace:*
+      '@cobyte-ui/tokens': workspace:^0.0.1
       '@cobyte-ui/utils': workspace:*
       '@element-plus/icons-vue': ^2.0.10
       '@types/node': '*'
@@ -27,6 +28,7 @@ importers:
       '@cobyte-ui/components': link:packages/components
       '@cobyte-ui/eslint-config': link:internal/eslint-config
       '@cobyte-ui/theme-chalk': link:packages/theme-chalk
+      '@cobyte-ui/tokens': link:packages/tokens
       '@cobyte-ui/utils': link:packages/utils
       '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/2.0.10_vue@3.2.37
       '@vueuse/core': registry.npmmirror.com/@vueuse/core/9.5.0_vue@3.2.37
