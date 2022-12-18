@@ -8,6 +8,7 @@ importers:
       '@cobyte-ui/hooks': workspace:^1.0.0
       '@cobyte-ui/theme-chalk': workspace:*
       '@cobyte-ui/utils': workspace:*
+      '@element-plus/icons-vue': ^2.0.10
       '@types/node': '*'
       '@vueuse/core': ^9.5.0
       eslint: ^8.23.1
@@ -27,6 +28,7 @@ importers:
       '@cobyte-ui/eslint-config': link:internal/eslint-config
       '@cobyte-ui/theme-chalk': link:packages/theme-chalk
       '@cobyte-ui/utils': link:packages/utils
+      '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/2.0.10_vue@3.2.37
       '@vueuse/core': registry.npmmirror.com/@vueuse/core/9.5.0_vue@3.2.37
     devDependencies:
       '@cobyte-ui/hooks': link:packages/hooks
@@ -186,6 +188,22 @@ packages:
       '@babel/helper-string-parser': registry.npmmirror.com/@babel/helper-string-parser/7.18.10
       '@babel/helper-validator-identifier': registry.npmmirror.com/@babel/helper-validator-identifier/7.18.6
       to-fast-properties: registry.npmmirror.com/to-fast-properties/2.0.0
+
+  registry.npmmirror.com/@element-plus/icons-vue/2.0.10_vue@3.2.37:
+    resolution:
+      {
+        integrity: sha512-ygEZ1mwPjcPo/OulhzLE7mtDrQBWI8vZzEWSNB2W/RNCRjoQGwbaK4N8lV4rid7Ts4qvySU3njMN7YCiSlSaTQ==,
+        registry: https://registry.npm.taobao.org/,
+        tarball: https://registry.npmmirror.com/@element-plus/icons-vue/-/icons-vue-2.0.10.tgz,
+      }
+    id: registry.npmmirror.com/@element-plus/icons-vue/2.0.10
+    name: '@element-plus/icons-vue'
+    version: 2.0.10
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: registry.npmmirror.com/vue/3.2.37
+    dev: false
 
   registry.npmmirror.com/@esbuild/linux-loong64/0.14.54:
     resolution:

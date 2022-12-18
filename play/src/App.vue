@@ -1,17 +1,13 @@
 <template>
   <div>
-    <el-button>按钮</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success" plain>Success</el-button>
-    <el-button type="info" round>Info</el-button>
-    <el-button type="warning" circle>Warning</el-button>
-    <el-button type="danger" disabled>Danger</el-button>
-    <el-button size="large">按钮</el-button>
-    <el-button ref="buttonRef" size="small">按钮</el-button>
+    <el-button>
+      <template #icon><Edit /></template>
+    </el-button>
   </div>
 </template>
 <script setup lang="ts">
 import { nextTick, ref } from 'vue'
+import { Edit } from '@element-plus/icons-vue'
 
 const buttonRef = ref()
 nextTick(() => {

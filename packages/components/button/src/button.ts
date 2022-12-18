@@ -31,6 +31,10 @@ export const buttonProps = {
     type: String as PropType<ButtonNativeType>,
     default: 'button',
   },
+  icon: {
+    type: [Object, String] as PropType<object | string>,
+    default: '',
+  },
   disabled: Boolean,
   autofocus: Boolean,
   round: Boolean,

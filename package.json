@@ -23,6 +23,7 @@
     "@cobyte-ui/eslint-config": "workspace:*",
     "@cobyte-ui/theme-chalk": "workspace:*",
     "@cobyte-ui/utils": "workspace:*",
+    "@element-plus/icons-vue": "^2.0.10",
     "@vueuse/core": "^9.5.0"
   },
   "devDependencies": {

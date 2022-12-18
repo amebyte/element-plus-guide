@@ -15,6 +15,10 @@
     :type="nativeType"
     @click="handleClick"
   >
+    <el-icon v-if="icon || $slots.icon">
+      <component :is="icon" v-if="icon" />
+      <slot v-else name="icon" />
+    </el-icon>
     <slot />
   </button>
 </template>
