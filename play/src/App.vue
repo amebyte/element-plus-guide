@@ -1,18 +1,10 @@
 <template>
   <div>
-    <el-button>
-      <template #icon><Edit /></template>
-    </el-button>
+    <el-button loading>Loading</el-button>
   </div>
 </template>
 <script setup lang="ts">
-import { nextTick, ref } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
-
-const buttonRef = ref()
-nextTick(() => {
-  console.log('buttonRef', buttonRef.value.ref)
-})
 </script>
 <style>
 @font-face {

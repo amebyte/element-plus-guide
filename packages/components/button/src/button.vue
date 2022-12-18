@@ -15,7 +15,13 @@
     :type="nativeType"
     @click="handleClick"
   >
-    <el-icon v-if="icon || $slots.icon">
+    <template v-if="loading">
+      <slot v-if="$slots.loading" name="loading" />
+      <el-icon v-else :class="ns.is('loading')">
+        <component :is="loadingIcon" />
+      </el-icon>
+    </template>
+    <el-icon v-else-if="icon || $slots.icon">
       <component :is="icon" v-if="icon" />
       <slot v-else name="icon" />
     </el-icon>
@@ -36,7 +42,7 @@ defineProps(buttonProps)
 const emit = defineEmits(buttonEmits)
 // classname 的 BEM 命名
 const ns = useNamespace('button')
-// button ref
+// 按钮 html 元素
 const _ref = ref<HTMLButtonElement>()
 // 点击事件函数
 const handleClick = (evt: MouseEvent) => {
