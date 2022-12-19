@@ -34,11 +34,11 @@ import { useNamespace } from '@cobyte-ui/hooks'
 import { buttonGroupContextKey } from '@cobyte-ui/tokens'
 import { buttonEmits, buttonProps } from './button'
 // 定义组件名称
-const props = defineOptions({
+defineOptions({
   name: 'ElButton',
 })
 // 定义 Props
-defineProps(buttonProps)
+const props = defineProps(buttonProps)
 // 定义 emit
 const emit = defineEmits(buttonEmits)
 
