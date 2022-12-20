@@ -1,13 +1,13 @@
 import { createApp } from 'vue'
 import ElIcon from '@cobyte-ui/components/icon'
-import ElButton from '@cobyte-ui/components/button'
+import ElButton, { ElButtonGroup } from '@cobyte-ui/components/button'
 import '@cobyte-ui/theme-chalk/src/index.scss'
 import App from './src/App.vue'
 
 console.log('ElButton', ElButton.ButtonGroup)
 
 // 组件库
-const components = [ElIcon, ElButton]
+const components = [ElIcon, ElButton, ElButtonGroup]
 // 是否已安装标识
 const INSTALLED_KEY = Symbol('INSTALLED_KEY')
 // 组件库插件
