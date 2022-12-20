@@ -3,6 +3,9 @@ import ElIcon from '@cobyte-ui/components/icon'
 import ElButton from '@cobyte-ui/components/button'
 import '@cobyte-ui/theme-chalk/src/index.scss'
 import App from './src/App.vue'
+
+console.log('ElButton', ElButton.ButtonGroup)
+
 // 组件库
 const components = [ElIcon, ElButton]
 // 是否已安装标识
