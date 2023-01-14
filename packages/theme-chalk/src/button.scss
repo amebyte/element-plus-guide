@@ -1,4 +1,10 @@
+@use 'common/var' as *;
 @use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+
+@include b(button) {
+  @include set-component-css-var('button', $button);
+}
 
 @include b(button) {
   display: inline-flex;
