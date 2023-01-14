@@ -44,3 +44,15 @@
   @return containsModifier($selector) or containWhenFlag($selector) or
     containPseudoClass($selector);
 }
+
+// join var name
+// joinVarName(('button', 'text-color')) => '--el-button-text-color'
+@function joinVarName($list) {
+  $name: '--' + config.$namespace;
+  @each $item in $list {
+    @if $item != '' {
+      $name: $name + '-' + $item;
+    }
+  }
+  @return $name;
+}
