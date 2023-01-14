@@ -1,4 +1,6 @@
+@use 'sass:map';
 @use 'common/var' as *;
+@use 'mixins/button' as *;
 @use 'mixins/mixins' as *;
 @use 'mixins/var' as *;
 
@@ -10,4 +12,35 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
+  line-height: 1;
+  // min-height will expand when in flex
+  height: map.get($input-height, 'default');
+  white-space: nowrap;
+  cursor: pointer;
+  color: getCssVar('button', 'text-color');
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: getCssVar('button', 'font-weight');
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: getCssVar('button', 'bg-color');
+  border: getCssVar('border');
+  border-color: getCssVar('button', 'border-color');
+
+  @each $type in (primary, success, warning, danger, info) {
+    @include m($type) {
+      @include button-variant($type);
+    }
+  }
+
+  @include button-size(
+    map.get($button-padding-vertical, 'default') - $button-border-width,
+    map.get($button-padding-horizontal, 'default') - $button-border-width,
+    map.get($button-font-size, 'default'),
+    map.get($button-border-radius, 'default')
+  );
 }

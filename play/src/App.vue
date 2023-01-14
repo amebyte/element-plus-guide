@@ -1,5 +1,12 @@
 <template>
   <div>
+    <el-button>Default</el-button>
+    <el-button type="primary">Primary</el-button>
+    <el-button type="success">Success</el-button>
+    <el-button type="info">Info</el-button>
+    <el-button type="warning">Warning</el-button>
+    <el-button type="danger">Danger</el-button>
+    <br />
     <el-button-group type="success" size="large">
       <el-button>按钮1</el-button>
       <el-button>按钮2</el-button>
@@ -26,5 +33,9 @@ import { Edit } from '@element-plus/icons-vue'
 
 .iconlogistics-car:before {
   content: '\e616';
+}
+
+.el-button + .el-button {
+  margin-left: 12px;
 }
 </style>
