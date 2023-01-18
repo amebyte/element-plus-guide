@@ -68,7 +68,7 @@ $color-info: map.get($colors, 'info', 'base') !default;
       ),
     ),
     $colors
-  ) !global;
+  ) !global; // 将局部变量转换为全局变量
 }
 
 // $colors.primary.light-i
