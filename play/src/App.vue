@@ -1,20 +1,26 @@
 <template>
-  <div>
-    <el-button>Default</el-button>
+  <div style="padding-top: 100px">
+    <!-- <el-button>Default</el-button>
     <el-button type="primary">Primary</el-button>
     <el-button type="success">Success</el-button>
     <el-button type="info">Info</el-button>
     <el-button type="warning">Warning</el-button>
     <el-button type="danger">Danger</el-button>
-    <br />
-    <el-button-group type="success" size="large">
+    <br /> -->
+    <!-- <el-button-group type="success" size="large">
       <el-button>按钮1</el-button>
       <el-button>按钮2</el-button>
-    </el-button-group>
+    </el-button-group> -->
+    <input name="username" />
   </div>
 </template>
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
+const value = ref('稀土掘金')
+watch(value, (newVal, oldVal) => {
+  console.log('newVal', newVal)
+})
 </script>
 <style>
 @font-face {
