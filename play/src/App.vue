@@ -11,7 +11,12 @@
       <el-button>按钮1</el-button>
       <el-button>按钮2</el-button>
     </el-button-group> -->
-    <input ref="input" :value="defaultValue" name="username" />
+    <input
+      ref="input"
+      :value="defaultValue"
+      name="username"
+      @change="changeHandle"
+    />
     <br />
     <br />
     <el-button type="primary" @click="onSubmit">提交</el-button>
@@ -21,17 +26,15 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
-const input = ref()
 // 默认值
 const defaultValue = ref('稀土掘金')
-watch(defaultValue, (newVal, oldVal) => {
-  console.log('newVal', newVal)
-})
+const changeHandle = (e: any) => {
+  defaultValue.value = e.target.value
+}
 const onSubmit = () => {
   console.log('提交的数据：')
-  console.log('input表单值', input.value.value)
   console.log('defaultValue值', defaultValue.value)
 }
 </script>
