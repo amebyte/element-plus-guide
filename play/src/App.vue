@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-top: 100px">
+  <div style="padding-top: 40px">
     <!-- <el-button>Default</el-button>
     <el-button type="primary">Primary</el-button>
     <el-button type="success">Success</el-button>
@@ -11,21 +11,28 @@
       <el-button>按钮1</el-button>
       <el-button>按钮2</el-button>
     </el-button-group> -->
-    <input ref="input" :value="delautValue" name="username" />
+    <input ref="input" :value="defaultValue" name="username" />
+    <br />
+    <br />
     <el-button type="primary" @click="onSubmit">提交</el-button>
-    {{ delautValue }}
+    <br />
+    <br />
+    defaultValue 值：{{ defaultValue }}
   </div>
 </template>
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
 const input = ref()
-const delautValue = ref('稀土掘金')
-watch(delautValue, (newVal, oldVal) => {
+// 默认值
+const defaultValue = ref('稀土掘金')
+watch(defaultValue, (newVal, oldVal) => {
   console.log('newVal', newVal)
 })
 const onSubmit = () => {
-  console.log(input.value.value, delautValue.value)
+  console.log('提交的数据：')
+  console.log('input表单值', input.value.value)
+  console.log('defaultValue值', defaultValue.value)
 }
 </script>
 <style>

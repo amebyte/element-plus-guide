@@ -4,7 +4,7 @@ import ElButton, { ElButtonGroup } from '@cobyte-ui/components/button'
 import '@cobyte-ui/theme-chalk/src/index.scss'
 import App from './src/App.vue'
 
-console.log('ElButton', ElButton.ButtonGroup)
+// console.log('ElButton', ElButton.ButtonGroup)
 
 // 组件库
 const components = [ElIcon, ElButton, ElButtonGroup]
