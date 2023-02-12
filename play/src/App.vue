@@ -11,16 +11,22 @@
       <el-button>按钮1</el-button>
       <el-button>按钮2</el-button>
     </el-button-group> -->
-    <input name="username" />
+    <input ref="input" :value="delautValue" name="username" />
+    <el-button type="primary" @click="onSubmit">提交</el-button>
+    {{ delautValue }}
   </div>
 </template>
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
-const value = ref('稀土掘金')
-watch(value, (newVal, oldVal) => {
+const input = ref()
+const delautValue = ref('稀土掘金')
+watch(delautValue, (newVal, oldVal) => {
   console.log('newVal', newVal)
 })
+const onSubmit = () => {
+  console.log(input.value.value, delautValue.value)
+}
 </script>
 <style>
 @font-face {
