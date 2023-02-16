@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <input :value="state" type="text" @change="changeHandle" />
-  </div>
+  <input :value="state" type="text" @change="changeHandle" />
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
@@ -12,7 +10,8 @@ const props = defineProps({
     default: '',
   },
 })
-const emit = defineEmits(['update'])
+
+const emit = defineEmits(['change'])
 
 const state = ref('')
 
@@ -26,6 +25,6 @@ watch(
 
 const changeHandle = (e: any) => {
   state.value = e.target.value
-  emit('update', state.value)
+  emit('change', state.value)
 }
 </script>
