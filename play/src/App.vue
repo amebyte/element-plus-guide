@@ -11,31 +11,31 @@
       <el-button>按钮1</el-button>
       <el-button>按钮2</el-button>
     </el-button-group> -->
-    <input
-      ref="input"
-      :value="defaultValue"
-      name="username"
-      @change="changeHandle"
-    />
+    <input ref="input" :value="state" name="username" @change="changeHandle" />
     <br />
     <br />
     <el-button type="primary" @click="onSubmit">提交</el-button>
     <br />
     <br />
-    defaultValue 值：{{ defaultValue }}
+    state 值：{{ state }}
+    <my-input :value="state" @update="update" />
   </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Edit } from '@element-plus/icons-vue'
+import MyInput from './Input.vue'
 // 默认值
-const defaultValue = ref('稀土掘金')
+const state = ref('稀土掘金')
 const changeHandle = (e: any) => {
-  defaultValue.value = e.target.value
+  state.value = e.target.value
+}
+const update = (value: any) => {
+  state.value = value
 }
 const onSubmit = () => {
   console.log('提交的数据：')
-  console.log('defaultValue值', defaultValue.value)
+  console.log('state值', state.value)
 }
 </script>
 <style>
