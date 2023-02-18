@@ -5,18 +5,18 @@
 import { ref, watch } from 'vue'
 
 const props = defineProps({
-  value: {
+  modelValue: {
     type: String,
     default: '',
   },
 })
 
-const emit = defineEmits(['change'])
+const emit = defineEmits(['onUpdate:modelValue'])
 
 const state = ref('')
 
 watch(
-  () => props.value,
+  () => props.modelValue,
   (newVal) => {
     state.value = newVal
   },
@@ -25,6 +25,6 @@ watch(
 
 const changeHandle = (e: any) => {
   state.value = e.target.value
-  emit('change', state.value)
+  emit('onUpdate:modelValue', state.value)
 }
 </script>

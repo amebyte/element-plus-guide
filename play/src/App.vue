@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-top: 40px">
+  <div style="padding-top: 40px; padding-left: 200px">
     <!-- <el-button>Default</el-button>
     <el-button type="primary">Primary</el-button>
     <el-button type="success">Success</el-button>
@@ -18,7 +18,10 @@
     <br />
     <br /> -->
     state 值：{{ state }}
-    <my-input :value="state" @change="changeHandle" />
+    <my-input
+      :model-value="state"
+      @onUpdate:modelValue="(value: string) => (state = value)"
+    />
   </div>
 </template>
 <script setup lang="ts">
