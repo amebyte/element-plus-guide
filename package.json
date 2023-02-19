@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@cobyte-ui/components": "workspace:*",
+    "@cobyte-ui/constants": "workspace:*",
     "@cobyte-ui/eslint-config": "workspace:*",
     "@cobyte-ui/theme-chalk": "workspace:*",
     "@cobyte-ui/tokens": "workspace:*",

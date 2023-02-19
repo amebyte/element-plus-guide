@@ -1,0 +1,6 @@
+{
+  "name": "@cobyte-ui/constants",
+  "private": true,
+  "license": "MIT",
+  "main": "index.ts"
+}

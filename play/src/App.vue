@@ -1,63 +1,25 @@
 <template>
-  <div style="padding-top: 40px; padding-left: 200px">
-    <!-- <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
-    <br /> -->
-    <!-- <el-button-group type="success" size="large">
-      <el-button>按钮1</el-button>
-      <el-button>按钮2</el-button>
-    </el-button-group> -->
-    <!-- <input ref="input" :value="state" name="username" @change="changeHandle" />
-    <br />
-    <br />
-    <el-button type="primary" @click="onSubmit">提交</el-button>
-    <br />
-    <br /> -->
-    state 值：{{ state }}
-    <my-input
-      :model-value="state"
-      @onUpdate:modelValue="(value: string) => (state = value)"
-    />
-  </div>
+  <br />
+  <br />
+  <br />
+  <input :value="state" name="username" @change="onChange" />
+  <br />
+  <br />
+  <el-button type="primary" @click="onSubmit">提交</el-button>
+  <br />
+  <br />
+  state 值：{{ state }}
 </template>
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue'
-import { Edit } from '@element-plus/icons-vue'
-import MyInput from './my-input.vue'
-// 默认值
+// 编辑时的默认值
 const state = ref('稀土掘金')
-const changeHandle = (value: any) => {
-  state.value = value
+const onChange = (e) => {
+  state.value = e.target.value
 }
+// 提交方法
 const onSubmit = () => {
   console.log('提交的数据：')
   console.log('state值', state.value)
 }
 </script>
-<style>
-@font-face {
-  font-family: 'iconfont';
-  src: url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAPIAAsAAAAACDAAAAN8AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFQGYACDMgqDKIJ8ATYCJAMUCwwABCAFhGcHXRszB8ieGjszMAURLRpbqK1NZLgai+Bpjd+83b37rkkUPJlGTXgTT1Q8iYdGtZBInqmizTP5JueqHACqHCL0ukm3u5zmUBE5JMlCIiqkp/Fvf/7/Tv0JTozFtidAC2TM7gl21TvSDl1Am7qfB7DYYs8/WVNbJGPOvRCigKCAWDUvXH2FqqsDgBEpuczPzki9YezKi3iOQLvV4mnu8nJLgemFOlUAR9qMziDOjQt9jgH63KDU5IZWoW67sYhHKtLtdMFD//vjn7WhT1JlxjH7T6WJwO4vsajNnU0n+Su3Q4CTEypkLF+ZKS7WOy7QCsPLaWkvG65tG6BdqySN2i+2qPxZahpiyd5U7eY/PEKSFaJmZHeCbShS+GlrIwQ/YxESPysRMj9rRW+nvALtsOg1wHOsmRzzL5IQXV0r2kzGaq3jaLnF+/VicyC71TjxsrzcdtZ20pCJG88Y4c4TKNefsuzjtxfkuCfx/iB25DlF3RiftC3VEO8xZFM2A0dvvO7J4xbdb/Dzbn5g56Vx48CdycHBDQeFt09l735ICJWYiystE0rLmTzH+aew04a1cR72nVcdHZHCyh8UhZbPmZ99R0vcYoHNW8yxRb45HFSQVL7tbneSLJMwwGzJPEoPP7L7Kzr+FhzVSmlQNP3r8HLHTW1uTh22uJ5mODzg2H9/M2RxRIVPtldGhle2zxbiIm7ETaq3xGEVEWLX0etr2H3G1qBe/aFD8yrrADTzzQyQLtFTkKU/+jve5Sz732AW+1+/o4AfK/GoX9YoMv6IUmvB/1Mea4laVB5SlrJm2yaoRvsTXom/1PDDPP3exlENtM4mtBqIIWkxAVmrKWwhLkGlw1qotdoM7ZZJ295hgIqWKG2Y0wMg9FqFpNsLyHqdYAvxHirDfkOt1z9odyBMDuswF6xNEEORCDa1Q55VKrClpn6vxYhrljGkKFCOiMBDHwzyD8zGMpACkSGWCC1cMKUYYqKUw3R6HZLJlFBFlBLEUn8xparogABc9iX+rFIOUhAIg0JEoCbtIB5LSQG76DT984ohnGYyDNISWx4mBDzsHQriL7AFNkOhaNVyJccIWnCCURQGYQRE5aB0bkNkSlgJUpWPk0BYlD9xj6BKtAATDbdV+M+vkj/gLmhnHFFFihwlqqh1XZhyvHAdKYIfyxCDO8jzo0ighmFbELUHAwA=')
-    format('woff2');
-}
-
-.iconfont {
-  font-family: 'iconfont' !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.iconlogistics-car:before {
-  content: '\e616';
-}
-
-.el-button + .el-button {
-  margin-left: 12px;
-}
-</style>
