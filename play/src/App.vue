@@ -1,4 +1,5 @@
 <template>
+  <el-input />
   <br />
   <br />
   <br />
