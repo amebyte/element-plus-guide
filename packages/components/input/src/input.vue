@@ -1,6 +1,6 @@
 <template>
   <div :class="nsInput.b()">
-    <input :type="type" @input="handleInput" />
+    <input ref="input" :type="type" @input="handleInput" />
   </div>
 </template>
 
@@ -23,8 +23,9 @@ const nsInput = useNamespace('input')
 const input = shallowRef<HTMLInputElement>()
 const _ref = computed(() => input.value)
 const nativeInputValue = computed(() =>
-  props.modelValue ? '' : String(props.modelValue)
+  !props.modelValue ? '' : String(props.modelValue)
 )
+
 const setNativeInputValue = () => {
   const input = _ref.value
   if (!input || input.value === nativeInputValue.value) return
