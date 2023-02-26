@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
 
-const state = ref('Cobyte')
+const state = ref('')
 watch(
   () => state.value,
   (newVal) => {

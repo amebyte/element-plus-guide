@@ -20,6 +20,9 @@ export type InputProps = ExtractPropTypes<typeof inputProps>
 
 export const inputEmits = {
   [UPDATE_MODEL_EVENT]: (value: string) => isString(value),
+  compositionstart: (evt: CompositionEvent) => evt instanceof CompositionEvent,
+  compositionupdate: (evt: CompositionEvent) => evt instanceof CompositionEvent,
+  compositionend: (evt: CompositionEvent) => evt instanceof CompositionEvent,
 }
 
 export type InputEmits = typeof inputEmits
