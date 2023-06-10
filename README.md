@@ -8,4 +8,5 @@
 4. [ESLint 技术原理与实战及代码规范自动化详解](https://juejin.cn/post/7157743898939359262)
 5. [从终端命令解析器说起谈谈 npm 包管理工具的运行原理](https://juejin.cn/post/7161063570594070559)
 6. [CSS 架构模式之 BEM 在组件库中的实践](https://juejin.cn/post/7165503808217284616)
-7. [组件实现的基本流程及 Icon 组件的实现]
+7. [组件实现的基本流程及 Icon 组件的实现](https://juejin.cn/post/7168835045984043022)
+8. [为什么组件库或插件需要定义 peerDependencies]
