@@ -47,9 +47,11 @@ class Schema {
       const reslut = this.rules[key]()
       errors.push(reslut)
     })
+    // 如果存在 false 则返回 false
     if (errors.includes(false)) {
       return false
     }
+    return true
   }
 }
 const validator = new Schema(rules)
