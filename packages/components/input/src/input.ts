@@ -23,6 +23,7 @@ export const inputEmits = {
   compositionstart: (evt: CompositionEvent) => evt instanceof CompositionEvent,
   compositionupdate: (evt: CompositionEvent) => evt instanceof CompositionEvent,
   compositionend: (evt: CompositionEvent) => evt instanceof CompositionEvent,
+  blur: (evt: FocusEvent) => evt instanceof FocusEvent,
 }
 
 export type InputEmits = typeof inputEmits

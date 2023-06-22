@@ -7,6 +7,7 @@
       @compositionupdate="handleCompositionUpdate"
       @compositionend="handleCompositionEnd"
       @input="handleInput"
+      @blur="handleBlur"
     />
   </div>
 </template>
@@ -48,6 +49,10 @@ const handleInput = async (event: Event) => {
   emit(UPDATE_MODEL_EVENT, value)
   await nextTick()
   setNativeInputValue()
+}
+
+const handleBlur = (event: FocusEvent) => {
+  emit('blur', event)
 }
 
 onMounted(() => {

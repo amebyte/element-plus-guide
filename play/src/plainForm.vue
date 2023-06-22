@@ -14,13 +14,13 @@ const password = ref('')
 const handleSubmit = () => {
   if (username.value === '') {
     alert('请输入用户名')
-    return false
+    return
   } else if (password.value === '') {
     alert('请输入密码')
-    return false
+    return
   } else if (password.value.length < 6 || password.value.length > 18) {
     alert('密码长度必须大于6位小于18位')
-    return false
+    return
   }
 }
 const handleUsernameBlur = () => {
