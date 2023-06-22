@@ -1,9 +1,9 @@
 <template>
   <div style="padding-top: 50px">
-    <PlainForm />
+    <validator-form />
   </div>
 </template>
 
 <script lang="ts" setup>
-import PlainForm from './plainForm.vue'
+import ValidatorForm from './validator-form.vue'
 </script>
