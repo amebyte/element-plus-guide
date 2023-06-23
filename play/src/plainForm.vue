@@ -11,28 +11,34 @@
 import { ref } from 'vue'
 const username = ref('')
 const password = ref('')
-const handleSubmit = () => {
+const usernameValidator = () => {
   if (username.value === '') {
     alert('请输入用户名')
-    return
-  } else if (password.value === '') {
+    return false
+  }
+  return true
+}
+const passwordValidator = () => {
+  if (password.value === '') {
     alert('请输入密码')
-    return
+    return false
   } else if (password.value.length < 6 || password.value.length > 18) {
     alert('密码长度必须大于6位小于18位')
-    return
+    return false
+  }
+  return true
+}
+const handleSubmit = () => {
+  if (usernameValidator() && passwordValidator()) {
+    alert('提交成功')
+  } else {
+    alert('提交失败')
   }
 }
 const handleUsernameBlur = () => {
-  if (username.value === '') {
-    alert('请输入用户名')
-  }
+  return passwordValidator()
 }
 const handlePasswordBlur = () => {
-  if (password.value === '') {
-    alert('请输入密码')
-  } else if (password.value.length < 6 || password.value.length > 18) {
-    alert('密码长度必须大于6位小于18位')
-  }
+  return passwordValidator()
 }
 </script>
