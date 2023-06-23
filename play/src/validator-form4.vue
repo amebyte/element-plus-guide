@@ -79,13 +79,14 @@ class Schema {
       const value = source[z]
       arr.forEach((r: any) => {
         const rule = r
+        // 在规则中添加对应的字段记录
         rule.field = z
         series[z] = series[z] || []
         // 为每个验证策略配置对应的上下文内容，从而可以获取验证的规则，验证字段的值
         series[z].push({
           rule,
           value,
-          source,
+          source, // 添加需要校验的数据源
         })
       })
     })
@@ -96,6 +97,7 @@ class Schema {
       const arr = series[key]
       arr.forEach((a: any) => {
         const rule = a.rule
+        // 执行校验策略函数的时候把对应的规则和需要校验的数据源也传递过去
         const result = rule.validator(rule, a.value, a.source)
         errors.push(result)
       })
