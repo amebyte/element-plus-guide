@@ -14,8 +14,12 @@ const password = ref('')
 
 const rules = {
   username: {
-    validator(value: string) {
-      if (value === '' || value === undefined || value === null) {
+    validator(rule: any, value: string, source: any) {
+      if (
+        // eslint-disable-next-line no-prototype-builtins
+        source.hasOwnProperty(rule.field) &&
+        (value === '' || value === undefined || value === null)
+      ) {
         alert('请输入用户名')
         return false
       }
@@ -23,16 +27,24 @@ const rules = {
   },
   password: [
     {
-      validator(value: string) {
-        if (value === '' || value === undefined || value === null) {
+      validator(rule: any, value: string, source: any) {
+        if (
+          // eslint-disable-next-line no-prototype-builtins
+          source.hasOwnProperty(rule.field) &&
+          (value === '' || value === undefined || value === null)
+        ) {
           alert('请输入密码')
           return false
         }
       },
     },
     {
-      validator(value: string) {
-        if (value.length < 6 || value.length > 18) {
+      validator(rule: any, value: string, source: any) {
+        if (
+          // eslint-disable-next-line no-prototype-builtins
+          source.hasOwnProperty(rule.field) &&
+          (value.length < 6 || value.length > 18)
+        ) {
           alert('密码长度必须大于6位小于18位')
           return false
         }
@@ -67,11 +79,13 @@ class Schema {
       const value = source[z]
       arr.forEach((r: any) => {
         const rule = r
+        rule.field = z
         series[z] = series[z] || []
         // 为每个验证策略配置对应的上下文内容，从而可以获取验证的规则，验证字段的值
         series[z].push({
           rule,
           value,
+          source,
         })
       })
     })
@@ -82,7 +96,7 @@ class Schema {
       const arr = series[key]
       arr.forEach((a: any) => {
         const rule = a.rule
-        const result = rule.validator(a.value)
+        const result = rule.validator(rule, a.value, a.source)
         errors.push(result)
       })
     })
