@@ -5,5 +5,5 @@
 </template>
 
 <script lang="ts" setup>
-import ValidatorForm from './validator-form1.vue'
+import ValidatorForm from './validator-form2.vue'
 </script>

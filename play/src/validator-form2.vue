@@ -13,17 +13,17 @@ const username = ref('')
 const password = ref('')
 
 const rules = {
-  username() {
-    if (username.value === '') {
+  username(value: string) {
+    if (value === '') {
       alert('请输入用户名')
       return false
     }
   },
-  password() {
-    if (password.value === '') {
+  password(value: string) {
+    if (value === '') {
       alert('请输入密码')
       return false
-    } else if (password.value.length < 6 || password.value.length > 18) {
+    } else if (value.length < 6 || value.length > 18) {
       alert('密码长度必须大于6位小于18位')
       return false
     }
@@ -40,11 +40,12 @@ class Schema {
     this.rules = rules
   }
   // 调用策略
-  validate(keys: any) {
+  validate(source_: any) {
+    const source = source_
     const errors = [] as boolean[]
-    keys.forEach((key: string | number) => {
+    Object.keys(source).forEach((key: string | number) => {
       // 执行策略
-      const reslut = this.rules[key]()
+      const reslut = this.rules[key](source[key])
       errors.push(reslut)
     })
     // 如果存在 false 则返回 false
@@ -56,7 +57,9 @@ class Schema {
 }
 const validator = new Schema(rules)
 const handleSubmit = () => {
-  if (validator.validate(['username', 'password'])) {
+  if (
+    validator.validate({ username: username.value, password: password.value })
+  ) {
     alert('提交成功')
   } else {
     alert('提交失败')
@@ -64,9 +67,9 @@ const handleSubmit = () => {
 }
 
 const handleUsernameBlur = () => {
-  validator.validate(['username'])
+  validator.validate({ username: username.value })
 }
 const handlePasswordBlur = () => {
-  validator.validate(['password'])
+  validator.validate({ password: password.value })
 }
 </script>
