@@ -14,13 +14,13 @@ const password = ref('')
 
 const rules = {
   username(value: string) {
-    if (value === '') {
+    if (value === '' || value === undefined || value === null) {
       alert('请输入用户名')
       return false
     }
   },
   password(value: string) {
-    if (value === '') {
+    if (value === '' || value === undefined || value === null) {
       alert('请输入密码')
       return false
     } else if (value.length < 6 || value.length > 18) {
@@ -45,8 +45,8 @@ class Schema {
     const errors = [] as boolean[]
     Object.keys(source).forEach((key: string | number) => {
       // 执行策略
-      const reslut = this.rules[key](source[key])
-      errors.push(reslut)
+      const result = this.rules[key](source[key])
+      errors.push(result)
     })
     // 如果存在 false 则返回 false
     if (errors.includes(false)) {
