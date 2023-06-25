@@ -134,6 +134,7 @@ const handleSubmit = () => {
     })
     .catch((errors) => {
       console.error(errors)
+      alert('提交失败')
     })
 }
 
