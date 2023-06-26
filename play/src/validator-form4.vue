@@ -16,8 +16,7 @@ const rules = {
   username: {
     validator(rule: any, value: string, source: any) {
       if (
-        // eslint-disable-next-line no-prototype-builtins
-        source.hasOwnProperty(rule.field) &&
+        Object.prototype.hasOwnProperty.call(source, rule.field) &&
         (value === '' || value === undefined || value === null)
       ) {
         alert('请输入用户名')
@@ -29,8 +28,7 @@ const rules = {
     {
       validator(rule: any, value: string, source: any) {
         if (
-          // eslint-disable-next-line no-prototype-builtins
-          source.hasOwnProperty(rule.field) &&
+          Object.prototype.hasOwnProperty.call(source, rule.field) &&
           (value === '' || value === undefined || value === null)
         ) {
           alert('请输入密码')
@@ -41,8 +39,7 @@ const rules = {
     {
       validator(rule: any, value: string, source: any) {
         if (
-          // eslint-disable-next-line no-prototype-builtins
-          source.hasOwnProperty(rule.field) &&
+          Object.prototype.hasOwnProperty.call(source, rule.field) &&
           (value.length < 6 || value.length > 18)
         ) {
           alert('密码长度必须大于6位小于18位')
