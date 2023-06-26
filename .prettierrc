@@ -8,5 +8,6 @@
         "parser": "json"
       }
     }
-  ]
+  ],
+  "endOfLine": "auto"
 }
