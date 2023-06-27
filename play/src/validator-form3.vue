@@ -75,7 +75,7 @@ class Schema {
         })
       })
     })
-
+    console.log('series', series)
     const objArrKeys = Object.keys(series)
     // 遍历执行验证字段策略中的策略
     objArrKeys.forEach((key) => {
