@@ -68,6 +68,7 @@ class Schema {
   validate(source_: any) {
     const source = source_
     const errors = [] as boolean[]
+    /** 第一部分是处理验证数据与验证规则的结合 start */
     // 最终保存验证数据的集合
     const series = {} as any
     const keys = Object.keys(this.rules)
@@ -89,7 +90,9 @@ class Schema {
         })
       })
     })
+    /** 第一部分是处理验证数据与验证规则的结合 end */
 
+    /** 第二部分是循环调用验证规则进行验证 start */
     const objArrKeys = Object.keys(series)
     // 遍历执行验证字段策略中的策略
     objArrKeys.forEach((key) => {
@@ -101,6 +104,7 @@ class Schema {
         errors.push(result)
       })
     })
+    /** 第二部分是循环调用验证规则进行验证 end */
 
     // 如果存在 false 则返回 false
     if (errors.includes(false)) {
