@@ -69,7 +69,9 @@ class Schema {
     const series = {} as any
     const keys = Object.keys(this.rules)
     keys.forEach((z) => {
+      // 字段中验证规则数组
       const arr = this.rules[z]
+      // 对应的字段值
       const value = source[z]
       arr.forEach((r: any) => {
         const rule = r
