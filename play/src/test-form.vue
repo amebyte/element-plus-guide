@@ -1,5 +1,5 @@
 <template>
-  <el-form-item>
+  <el-form-item prop="username">
     <el-input v-model="data.username" />
   </el-form-item>
 </template>

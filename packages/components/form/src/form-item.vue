@@ -1,19 +1,21 @@
 <template>
   <div :class="formItemClasses">
-    <label :class="ns.b('label')">label</label>
-    <div :class="ns.b('content')">
+    <label :class="ns.e('label')">label</label>
+    <div :class="ns.e('content')">
       <slot />
-      <div :class="ns.b('error')">{{ validateMessage }}</div>
+      <div :class="ns.e('error')">{{ validateMessage }}</div>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import { useNamespace } from '@cobyte-ui/hooks'
+import { formItemProps } from './form-item'
 import type { FormItemValidateState } from './form-item'
 defineOptions({
   name: 'ElFormItem',
 })
+defineProps(formItemProps)
 const ns = useNamespace('form-item')
 const validateState = ref<FormItemValidateState>('')
 const formItemClasses = computed(() => [
