@@ -26,7 +26,8 @@
     "@cobyte-ui/tokens": "workspace:*",
     "@cobyte-ui/utils": "workspace:*",
     "@element-plus/icons-vue": "^2.0.10",
-    "@vueuse/core": "^9.5.0"
+    "@vueuse/core": "^9.5.0",
+    "async-validator": "^4.2.5"
   },
   "devDependencies": {
     "@cobyte-ui/hooks": "workspace:^1.0.0",
