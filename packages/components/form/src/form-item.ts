@@ -4,6 +4,13 @@ import type { Arrayable } from '@cobyte-ui/utils'
 import type formItem from './form-item.vue'
 import type { FormItemRule } from '@cobyte-ui/tokens'
 
+export const formItemValidateStates = [
+  '',
+  'error',
+  'validating',
+  'success',
+] as const
+export type FormItemValidateState = typeof formItemValidateStates[number]
 export type FormItemProp = Arrayable<string>
 export const formItemProps = {
   label: String,
