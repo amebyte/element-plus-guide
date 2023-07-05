@@ -1,5 +1,6 @@
 <template>
-  <el-form-item prop="username">
+  <el-form-item label="用户名称" prop="username">
+    <template #label>用户名</template>
     <el-input v-model="data.username" />
   </el-form-item>
 </template>
