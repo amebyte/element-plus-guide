@@ -53,6 +53,7 @@ const handleInput = async (event: Event) => {
 
 const handleBlur = (event: FocusEvent) => {
   emit('blur', event)
+  formItem?.validate?.('blur')
 }
 
 watch(
