@@ -1,6 +1,6 @@
 <template>
   <div :class="formItemClasses">
-    <label :class="ns.e('label')">label</label>
+    <label :class="ns.e('label')">{{ label }}</label>
     <div :class="ns.e('content')">
       <slot />
       <div :class="ns.e('error')">{{ validateMessage }}</div>
