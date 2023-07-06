@@ -6,3 +6,4 @@ const ElFormItem = withInstall(FormItem)
 // 可以通过 app.use 来使用，也可以通过 import 方式单独使用
 export default ElFormItem
 export * from './src/form-item'
+export * from './src/form'
