@@ -17,6 +17,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, inject, provide, reactive, ref, toRefs } from 'vue'
+import AsyncValidator from 'async-validator'
 import { useNamespace } from '@cobyte-ui/hooks'
 import { formContextKey, formItemContextKey } from '@cobyte-ui/tokens/form'
 import { formItemProps } from './form-item'
@@ -66,12 +67,31 @@ const getFilteredRule = (trigger: string) => {
   })
 }
 
-const validate: FormItemContext['validate'] = async (trigger, callback) => {
+const validate: FormItemContext['validate'] = async (
+  trigger,
+  _callback
+): Promise<true> => {
   const rules = getFilteredRule(trigger)
   console.log('trigger', trigger, rules, formContext?.model, formContext?.rules)
   // rules 是触发的规则，trigger 是触发的方式
   // 需要找到对应的数据源，也就是对应的 prop
   // 触发事件，找到对应的规则和数据源去校验对应的属性值
+  const modelName = props.prop!
+  const model = formContext?.model!
+  // 声明校验实例对象
+  const validator = new AsyncValidator({
+    [modelName]: rules,
+  })
+  return validator
+    .validate({ [modelName]: model[modelName] }, { firstFields: true })
+    .then(() => {
+      console.log('校验成功')
+      return true as const
+    })
+    .catch((err: any) => {
+      console.log('校验失败')
+      return Promise.reject(err)
+    })
 }
 
 const context: FormItemContext = reactive({

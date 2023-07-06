@@ -17,7 +17,7 @@ export type FormValidateCallback = (isValid: boolean) => void
 export type FormContext = FormProps & { emit: SetupContext<FormEmits>['emit'] }
 
 export interface FormItemContext extends FormItemProps {
-  validate(trigger: string, callback?: FormValidateCallback): Promise<void>
+  validate(trigger: string, callback?: FormValidateCallback): Promise<any>
 }
 
 export const formContextKey: InjectionKey<FormContext> =
