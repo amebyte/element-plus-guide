@@ -6,6 +6,8 @@ export interface FormItemRule extends RuleItem {
   trigger?: Arrayable<string>
 }
 
+export type FormRules = Partial<Record<string, Arrayable<FormItemRule>>>
+
 export type FormValidateCallback = (isValid: boolean) => void
 
 // export type FormContext = {}
