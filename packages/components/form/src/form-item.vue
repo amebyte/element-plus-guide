@@ -16,16 +16,18 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, provide, reactive, ref, toRefs } from 'vue'
+import { computed, inject, provide, reactive, ref, toRefs } from 'vue'
 import { useNamespace } from '@cobyte-ui/hooks'
-import { formItemContextKey } from '@cobyte-ui/tokens/form'
+import { formContextKey, formItemContextKey } from '@cobyte-ui/tokens/form'
 import { formItemProps } from './form-item'
 import type { FormItemContext, FormItemRule } from '@cobyte-ui/tokens/form'
 import type { FormItemValidateState } from './form-item'
+import type { Arrayable } from '@cobyte-ui/utils'
 defineOptions({
   name: 'ElFormItem',
 })
 const props = defineProps(formItemProps)
+const formContext = inject(formContextKey, undefined)
 const ns = useNamespace('form-item')
 const validateState = ref<FormItemValidateState>('')
 const formItemClasses = computed(() => [
@@ -35,12 +37,19 @@ const formItemClasses = computed(() => [
 ])
 const validateMessage = ref('')
 
+const ensureArray = (rules: Arrayable<FormItemRule> | undefined) => {
+  return rules ? (Array.isArray(rules) ? rules : [rules]) : []
+}
+
 const _rules = computed(() => {
-  const rules: FormItemRule[] = props.rules
-    ? Array.isArray(props.rules)
-      ? props.rules
-      : [props.rules]
-    : []
+  const rules: FormItemRule[] = ensureArray(props.rules)
+  const formRules = formContext?.rules
+  if (formRules && props.prop) {
+    const _rules = formRules[props.prop]
+    if (_rules) {
+      rules.push(...ensureArray(_rules))
+    }
+  }
   return rules
 })
 
@@ -59,7 +68,10 @@ const getFilteredRule = (trigger: string) => {
 
 const validate: FormItemContext['validate'] = async (trigger, callback) => {
   const rules = getFilteredRule(trigger)
-  console.log('trigger', trigger, rules)
+  console.log('trigger', trigger, rules, formContext?.model, formContext?.rules)
+  // rules 是触发的规则，trigger 是触发的方式
+  // 需要找到对应的数据源，也就是对应的 prop
+  // 触发事件，找到对应的规则和数据源去校验对应的属性值
 }
 
 const context: FormItemContext = reactive({
