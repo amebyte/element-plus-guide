@@ -1,5 +1,9 @@
 import type { InjectionKey, SetupContext } from 'vue'
-import type { RuleItem } from 'async-validator'
+import type {
+  RuleItem,
+  ValidateError,
+  ValidateFieldsError,
+} from 'async-validator'
 import type {
   FormEmits,
   FormItemProps,
@@ -8,6 +12,11 @@ import type {
 import type { Arrayable } from '@cobyte-ui/utils'
 export interface FormItemRule extends RuleItem {
   trigger?: Arrayable<string>
+}
+
+export interface FormValidateFailure {
+  errors: ValidateError[] | null
+  fields: ValidateFieldsError
 }
 
 export type FormRules = Partial<Record<string, Arrayable<FormItemRule>>>

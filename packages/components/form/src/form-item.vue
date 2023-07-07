@@ -21,7 +21,11 @@ import AsyncValidator from 'async-validator'
 import { useNamespace } from '@cobyte-ui/hooks'
 import { formContextKey, formItemContextKey } from '@cobyte-ui/tokens/form'
 import { formItemProps } from './form-item'
-import type { FormItemContext, FormItemRule } from '@cobyte-ui/tokens/form'
+import type {
+  FormItemContext,
+  FormItemRule,
+  FormValidateFailure,
+} from '@cobyte-ui/tokens/form'
 import type { FormItemValidateState } from './form-item'
 import type { Arrayable } from '@cobyte-ui/utils'
 defineOptions({
@@ -67,6 +71,19 @@ const getFilteredRule = (trigger: string) => {
   })
 }
 
+const setValidationState = (state: FormItemValidateState) => {
+  validateState.value = state
+}
+
+const onValidationFailed = (error: FormValidateFailure) => {
+  setValidationState('error')
+}
+
+const onValidationSucceeded = () => {
+  setValidationState('success')
+  formContext?.emit('validate', props.prop!, true, '')
+}
+
 const validate: FormItemContext['validate'] = async (
   trigger,
   _callback
@@ -86,10 +103,12 @@ const validate: FormItemContext['validate'] = async (
     .validate({ [modelName]: model[modelName] }, { firstFields: true })
     .then(() => {
       console.log('校验成功')
+      onValidationSucceeded()
       return true as const
     })
-    .catch((err: any) => {
+    .catch((err: FormValidateFailure) => {
       console.log('校验失败')
+      onValidationFailed(err as FormValidateFailure)
       return Promise.reject(err)
     })
 }
