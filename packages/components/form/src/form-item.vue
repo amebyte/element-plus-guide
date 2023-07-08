@@ -76,7 +76,13 @@ const setValidationState = (state: FormItemValidateState) => {
 }
 
 const onValidationFailed = (error: FormValidateFailure) => {
+  const { errors } = error
   setValidationState('error')
+  validateMessage.value = errors
+    ? errors?.[0]?.message ?? `${props.prop} is required`
+    : ''
+
+  formContext?.emit('validate', props.prop!, false, validateMessage.value)
 }
 
 const onValidationSucceeded = () => {
