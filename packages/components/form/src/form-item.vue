@@ -87,13 +87,11 @@ const onValidationFailed = (error: FormValidateFailure) => {
 
 const onValidationSucceeded = () => {
   setValidationState('success')
+  validateMessage.value = ''
   formContext?.emit('validate', props.prop!, true, '')
 }
 
-const validate: FormItemContext['validate'] = async (
-  trigger,
-  _callback
-): Promise<true> => {
+const validate: FormItemContext['validate'] = async (trigger, _callback) => {
   const rules = getFilteredRule(trigger)
   console.log('trigger', trigger, rules, formContext?.model, formContext?.rules)
   // rules 是触发的规则，trigger 是触发的方式
@@ -110,12 +108,12 @@ const validate: FormItemContext['validate'] = async (
     .then(() => {
       console.log('校验成功')
       onValidationSucceeded()
-      return true as const
+      // return true as const
     })
     .catch((err: FormValidateFailure) => {
       console.log('校验失败')
       onValidationFailed(err as FormValidateFailure)
-      return Promise.reject(err)
+      // return Promise.reject(err)
     })
 }
 
