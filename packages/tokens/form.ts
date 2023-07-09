@@ -23,7 +23,10 @@ export type FormRules = Partial<Record<string, Arrayable<FormItemRule>>>
 
 export type FormValidateCallback = (isValid: boolean) => void
 
-export type FormContext = FormProps & { emit: SetupContext<FormEmits>['emit'] }
+export type FormContext = FormProps & {
+  emit: SetupContext<FormEmits>['emit']
+  addField: (field: FormItemContext) => void
+}
 
 export interface FormItemContext extends FormItemProps {
   validate(trigger: string, callback?: FormValidateCallback): Promise<any>
