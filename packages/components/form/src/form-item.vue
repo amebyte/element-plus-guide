@@ -121,7 +121,7 @@ const validate: FormItemContext['validate'] = async (trigger, _callback) => {
     .catch((err: FormValidateFailure) => {
       console.log('校验失败')
       onValidationFailed(err as FormValidateFailure)
-      // return Promise.reject(err)
+      return Promise.reject(err)
     })
 }
 

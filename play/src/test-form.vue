@@ -1,5 +1,6 @@
 <template>
   <el-form
+    ref="formRef"
     :model="data"
     :rules="{
       username: {
@@ -43,10 +44,18 @@
     >
       <el-input v-model="data.password" />
     </el-form-item>
+    <el-button @click="handleSubmit">提交</el-button>
   </el-form>
 </template>
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { reactive, shallowRef } from 'vue'
+import type { FormInstance } from '@cobyte-ui/components/form'
 
+const formRef = shallowRef<FormInstance>()
 const data = reactive({ username: '', password: '' })
+const handleSubmit = () => {
+  formRef.value.validate((valid: any) => {
+    console.log('valid', valid)
+  })
+}
 </script>

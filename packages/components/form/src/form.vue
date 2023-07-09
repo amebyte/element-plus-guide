@@ -24,9 +24,9 @@ const validate = async (callback?: any) => {
   for (const field of fields) {
     try {
       await field.validate('')
-    } catch (fields) {
+    } catch (errors: any) {
       validationErrors = {
-        ...validationErrors,
+        ...errors.fields,
         ...(fields as any),
       }
     }
