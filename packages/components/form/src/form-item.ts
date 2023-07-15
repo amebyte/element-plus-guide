@@ -14,18 +14,11 @@ export type FormItemValidateState = typeof formItemValidateStates[number]
 export type FormItemProp = Arrayable<string>
 export const formItemProps = {
   label: String,
-  prop: {
-    type: definePropType<FormItemProp>([String, Array]),
-  },
+  prop: String,
   rules: {
     type: definePropType<Arrayable<FormItemRule>>([Object, Array]),
   },
-  showMessage: {
-    type: Boolean,
-    default: true,
-  },
 } as const
-
 export type FormItemProps = ExtractPropTypes<typeof formItemProps>
 
 export type FormItemInstance = InstanceType<typeof formItem>
