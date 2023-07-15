@@ -43,12 +43,12 @@ const props = defineProps(formItemProps)
 const formContext = inject(formContextKey, undefined)
 const ns = useNamespace('form-item')
 const validateState = ref<FormItemValidateState>('')
+const validateMessage = ref('')
 const formItemClasses = computed(() => [
   ns.b(),
   ns.is('error', validateState.value === 'error'),
   ns.is('success', validateState.value === 'success'),
 ])
-const validateMessage = ref('')
 
 const ensureArray = (rules: Arrayable<FormItemRule> | undefined) => {
   return rules ? (Array.isArray(rules) ? rules : [rules]) : []
