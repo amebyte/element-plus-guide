@@ -25,6 +25,7 @@ export const formItemProps = {
     default: true,
   },
 } as const
+
 export type FormItemProps = ExtractPropTypes<typeof formItemProps>
 
 export type FormItemInstance = InstanceType<typeof formItem>
