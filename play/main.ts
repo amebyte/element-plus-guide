@@ -2,11 +2,9 @@ import { createApp } from 'vue'
 import ElIcon from '@cobyte-ui/components/icon'
 import ElButton, { ElButtonGroup } from '@cobyte-ui/components/button'
 import ElInput from '@cobyte-ui/components/input'
-import { ElForm, ElFormItem } from '@cobyte-ui/components/form'
+import { ElForm, ElFormItem } from '@cobyte-ui/components/form1'
 import '@cobyte-ui/theme-chalk/src/index.scss'
 import App from './src/App.vue'
-
-console.log('ElForm', ElForm)
 
 // 组件库
 const components = [
