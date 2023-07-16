@@ -13,8 +13,17 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, ref, shallowRef, watch } from 'vue'
-import { useFormItem, useNamespace } from '@cobyte-ui/hooks'
+import {
+  computed,
+  inject,
+  nextTick,
+  onMounted,
+  ref,
+  shallowRef,
+  watch,
+} from 'vue'
+import { useNamespace } from '@cobyte-ui/hooks'
+import { formItemContextKey } from '@cobyte-ui/tokens'
 import { UPDATE_MODEL_EVENT } from '@cobyte-ui/constants'
 import { inputEmits, inputProps } from './input'
 
@@ -25,7 +34,7 @@ defineOptions({
 })
 const props = defineProps(inputProps)
 const emit = defineEmits(inputEmits)
-const { formItem } = useFormItem()
+const formItem = inject(formItemContextKey, undefined)
 const nsInput = useNamespace('input')
 
 const input = shallowRef<HTMLInputElement>()

@@ -1,6 +1,15 @@
 <template>
   <el-form>
-    <el-form-item label="用户名：">
+    <el-form-item
+      label="用户名："
+      :rules="{
+        username: {
+          required: true,
+          message: '请输入用户名',
+          trigger: 'blur',
+        },
+      }"
+    >
       <el-input v-model="data.username" />
     </el-form-item>
     <el-button @click="handleSubmit">提交</el-button>
