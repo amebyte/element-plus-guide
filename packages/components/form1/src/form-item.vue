@@ -17,11 +17,7 @@ import AsyncValidator from 'async-validator'
 import { useNamespace } from '@cobyte-ui/hooks'
 import { formContextKey, formItemContextKey } from '@cobyte-ui/tokens/form'
 import { formItemProps } from './form-item'
-import type {
-  FormItemContext,
-  FormItemRule,
-  FormValidateFailure,
-} from '@cobyte-ui/tokens/form'
+import type { FormItemContext, FormItemRule } from '@cobyte-ui/tokens/form'
 import type { Arrayable } from '@cobyte-ui/utils'
 defineOptions({
   name: 'ElFormItem',
@@ -64,7 +60,7 @@ const getFilteredRule = (trigger: string) => {
 }
 
 // 校验失败的处理
-const onValidationFailed = (error) => {
+const onValidationFailed = (error: any) => {
   const { errors } = error
   validateMessage.value = errors
     ? errors?.[0]?.message ?? `${props.prop} is required`
