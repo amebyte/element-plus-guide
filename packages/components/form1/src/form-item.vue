@@ -81,6 +81,7 @@ const validate: FormItemContext['validate'] = async (trigger) => {
   const modelName = props.prop!
   // 获取 Form 组件的 model 的数据源
   const model = formContext?.model!
+  console.log('formContext', formContext, modelName, model, model[modelName])
   // 声明校验实例对象
   const validator = new AsyncValidator({
     [modelName]: rules,

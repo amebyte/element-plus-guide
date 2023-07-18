@@ -1,18 +1,23 @@
 <template>
-  <el-form>
+  <el-form
+    :model="data"
+    :rules="{
+      username: {
+        min: 6,
+        max: 10,
+        message: '用户名长度最少6位且不能超过10位',
+        trigger: 'change',
+      },
+    }"
+  >
     <el-form-item
       label="用户名："
+      prop="username"
       :rules="[
         {
           required: true,
           message: '请输入用户名',
           trigger: 'blur',
-        },
-        {
-          min: 6,
-          max: 10,
-          message: '用户名长度最少6位且不能超过10位',
-          trigger: 'change',
         },
       ]"
     >
