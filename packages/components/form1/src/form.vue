@@ -18,6 +18,25 @@ const addField: FormContext['addField'] = (context) => {
   fields.push(context)
 }
 
+// 在父级中调用所有的后代组件的校验
+const validate = async (callback?: any) => {
+  let validationErrors: any = {}
+  for (const field of fields) {
+    try {
+      // 触发方式为空则校验所有规则
+      await field.validate('')
+    } catch (errors: any) {
+      validationErrors = {
+        ...errors.fields,
+        ...(fields as any),
+      }
+    }
+  }
+  // 如果错误信息为空则表示验证全部通过
+  if (Object.keys(validationErrors).length === 0) return callback?.(true)
+  callback?.(false, validationErrors)
+}
+
 provide(
   formContextKey,
   reactive({
@@ -25,4 +44,8 @@ provide(
     addField,
   })
 )
+// 对外暴露 validate 方法
+defineExpose({
+  validate,
+})
 </script>
