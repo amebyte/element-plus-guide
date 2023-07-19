@@ -12,7 +12,15 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { computed, inject, provide, reactive, ref, toRefs } from 'vue'
+import {
+  computed,
+  inject,
+  onMounted,
+  provide,
+  reactive,
+  ref,
+  toRefs,
+} from 'vue'
 import AsyncValidator from 'async-validator'
 import { useNamespace } from '@cobyte-ui/hooks'
 import { formContextKey, formItemContextKey } from '@cobyte-ui/tokens/form'
@@ -99,4 +107,10 @@ const context: FormItemContext = reactive({
 })
 
 provide(formItemContextKey, context)
+
+onMounted(() => {
+  if (props.prop) {
+    formContext?.addField(context)
+  }
+})
 </script>
