@@ -28,6 +28,13 @@
     <slot />
   </button>
 </template>
+<!-- <script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'ElButton',
+})
+</script> -->
 <script lang="ts" setup>
 import { computed, inject, ref } from 'vue'
 import { useNamespace } from '@cobyte-ui/hooks'

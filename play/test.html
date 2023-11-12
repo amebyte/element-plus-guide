@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浏览器引用组件库包</title>
+  </head>
+  <body>
+    <div id="app">
+      <el-button>{{ message }}</el-button>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../dist/cobyte-ui/dist/index.full.js"></script>
+    <script>
+      const { createApp, ref } = Vue
+      const App = {
+        setup() {
+          const message = ref('浏览器引用组件库包')
+          return {
+            message,
+          }
+        },
+      }
+      const app = Vue.createApp(App)
+      app.use(CobyteUI)
+      app.mount('#app')
+    </script>
+  </body>
+</html>
