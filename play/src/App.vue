@@ -47,7 +47,7 @@
   </el-form>
 </template>
 <script lang="ts" setup>
-import { reactive, shallowRef } from 'vue'
+import { computed, reactive, ref, shallowRef } from 'vue'
 import type { FormInstance } from '@cobyte-ui/components/form'
 
 const formRef = shallowRef<FormInstance>()
@@ -61,4 +61,21 @@ const handleSubmit = () => {
     }
   })
 }
+
+const d1 = ref({
+  a: {
+    b: {
+      c: 2,
+    },
+  },
+})
+const d2 = ref({
+  aa: computed(() => {
+    console.log('计算')
+    return d1.value.a.b.c
+  }),
+})
+console.log('d2', d2.value.aa)
+d1.value.a.b.c = 333
+console.log('重新计算', d2.value.aa)
 </script>
