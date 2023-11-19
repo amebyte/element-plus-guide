@@ -54,7 +54,13 @@ const buildModules = async () => {
       esbuild(),
     ],
     // 排除不进行打包的 npm 包，例如 Vue，以便减少包的体积
-    external: ['vue'],
+    external: [
+      'vue',
+      '@vue/shared',
+      '@element-plus/icons-vue',
+      '@vueuse/core',
+      'async-validator',
+    ],
   })
   // 配置输出文件格式
   bundle.write({
