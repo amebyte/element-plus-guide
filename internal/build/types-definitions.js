@@ -1,3 +1,4 @@
+import { readFile } from 'fs/promises'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 import { Project } from 'ts-morph'
@@ -60,6 +61,24 @@ async function addSourceFiles(project) {
       onlyFiles: true, // 只读取文件
     })
   )
+
+  await Promise.all([
+    // eslint-disable-next-line array-callback-return
+    ...filePaths.map((file) => {
+      if (file.endsWith('.vue')) {
+        // 处理 .vue 文件
+      } else {
+        // 如果不是 .vue 文件则 addSourceFileAtPath 添加文件路径的方式添加 ts-morph 项目的 TypeScript 源文件
+        project.addSourceFileAtPath(file)
+      }
+    }),
+    ...epPaths.map(async (file) => {
+      // 读取 ./packages/cobyte-ui 目录下的文件，并手动通过 createSourceFile 方法添加 ts-morph 项目的 TypeScript 源文件
+      const content = await readFile(resolve(epRoot, file), 'utf-8')
+      // 以构建新的文件路径以达到移动的目的
+      project.createSourceFile(resolve(pkgRoot, file), content)
+    }),
+  ])
 }
 
 generateTypesDefinitions()
