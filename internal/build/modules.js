@@ -27,7 +27,7 @@ const excludeFiles = (files) => {
 }
 
 // 模块化打包任务函数
-const buildModules = async () => {
+export const buildModules = async () => {
   const input = excludeFiles(
     await glob('**/*.{js,ts,vue}', {
       cwd: pkgRoot,
@@ -74,4 +74,4 @@ const buildModules = async () => {
     preserveModules: true, // 该选项将使用原始模块名作为文件名，为所有模块创建单独的 chunk
   })
 }
-buildModules()
+// buildModules()

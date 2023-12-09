@@ -1,7 +1,8 @@
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 import { rollup } from 'rollup'
-import vuePlugin from 'rollup-plugin-vue'
+import vue from '@vitejs/plugin-vue'
+import VueMacros from 'unplugin-vue-macros/rollup'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import esbuild from 'rollup-plugin-esbuild'
 import replace from '@rollup/plugin-replace'
@@ -21,12 +22,16 @@ const buildOutput = resolve(projRoot, 'dist')
 const epOutput = resolve(buildOutput, 'cobyte-ui')
 
 // 全量打包任务函数
-const buildFullEntry = async () => {
+export const buildFullEntry = async () => {
   const bundle = await rollup({
     input: resolve(epRoot, 'index.ts'), // 配置入口文件
     plugins: [
       // 配置插件
-      vuePlugin(),
+      VueMacros({
+        plugins: {
+          vue: vue(),
+        },
+      }),
       nodeResolve({
         extensions: ['.ts'],
       }),
@@ -49,4 +54,4 @@ const buildFullEntry = async () => {
     },
   })
 }
-buildFullEntry()
+// buildFullEntry()

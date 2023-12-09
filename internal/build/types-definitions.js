@@ -25,7 +25,7 @@ const excludeFiles = (files) => {
   )
 }
 
-const generateTypesDefinitions = async () => {
+export const generateTypesDefinitions = async () => {
   const project = new Project({
     compilerOptions: {
       emitDeclarationOnly: true, // 是否只输出类型文件 .d.ts
@@ -107,4 +107,4 @@ async function addSourceFiles(project) {
   ])
 }
 
-generateTypesDefinitions()
+// generateTypesDefinitions()

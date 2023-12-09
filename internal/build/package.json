@@ -8,9 +8,14 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp --require @esbuild-kit/cjs-loader -f gulpfile.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "gulp": "^4.0.2"
   },
   "devDependencies": {
+    "@esbuild-kit/cjs-loader": "^2.4.4",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.5",
     "fast-glob": "^3.3.2",
