@@ -1,7 +1,8 @@
 import { readFile } from 'fs/promises'
 import { fileURLToPath } from 'url'
-import { dirname, resolve } from 'path'
+import { dirname, relative, resolve } from 'path'
 import { Project } from 'ts-morph'
+import * as vueCompiler from 'vue/compiler-sfc'
 import glob from 'fast-glob'
 
 const __filenameNew = fileURLToPath(import.meta.url)
@@ -64,9 +65,34 @@ async function addSourceFiles(project) {
 
   await Promise.all([
     // eslint-disable-next-line array-callback-return
-    ...filePaths.map((file) => {
+    ...filePaths.map(async (file) => {
       if (file.endsWith('.vue')) {
         // 处理 .vue 文件
+        // 读取 .vue 文件内容
+        const content = await readFile(file, 'utf-8')
+        // 初步解析出 template、script、scriptSetup、style 模块
+        const sfc = vueCompiler.parse(content)
+        const { script, scriptSetup } = sfc.descriptor
+        if (script || scriptSetup) {
+          // ? 可选链操作符
+          let content = script?.content ?? ''
+          if (scriptSetup) {
+            // 如果存在 scriptSetup 则需要通过 compileScript 方法编译
+            const compiled = vueCompiler.compileScript(sfc.descriptor, {
+              id: 'xxx',
+            })
+            content += compiled.content
+          }
+
+          const lang = scriptSetup.lang || script.lang || 'js'
+          // 创建 TypeScript 源文件
+          // process.cwd()：获取当前进程工作目录
+          // path.relative() 方法根据当前工作目录返回从 from 到 to 的相对路径
+          project.createSourceFile(
+            `${relative(process.cwd(), file)}.${lang}`,
+            content
+          )
+        }
       } else {
         // 如果不是 .vue 文件则 addSourceFileAtPath 添加文件路径的方式添加 ts-morph 项目的 TypeScript 源文件
         project.addSourceFileAtPath(file)
