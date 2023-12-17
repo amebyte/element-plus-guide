@@ -18,6 +18,7 @@ const pkgRoot = resolve(projRoot, 'packages')
 const buildOutput = resolve(projRoot, 'dist')
 /** `/dist/cobyte-ui` */
 const epOutput = resolve(buildOutput, 'cobyte-ui')
+const epRoot = resolve(pkgRoot, 'cobyte-ui')
 
 const excludeFiles = (files) => {
   const excludes = ['node_modules']
@@ -67,11 +68,15 @@ export const buildModules = async () => {
     format: 'esm', // 配置输出格式
     dir: resolve(epOutput, 'es'), // 配置输出目录
     preserveModules: true, // 该选项将使用原始模块名作为文件名，为所有模块创建单独的 chunk
+    preserveModulesRoot: epRoot,
+    entryFileNames: `[name].mjs`, // [name]：入口文件的文件名（不包含扩展名），也就是生产 .mjs 结尾的文件
   })
   bundle.write({
     format: 'cjs', // 配置输出格式
     dir: resolve(epOutput, 'lib'), // 配置输出目录
     preserveModules: true, // 该选项将使用原始模块名作为文件名，为所有模块创建单独的 chunk
+    preserveModulesRoot: epRoot,
+    entryFileNames: `[name].cjs`, // [name]：入口文件的文件名（不包含扩展名），也就是生产 .cjs 结尾的文件
   })
 }
-// buildModules()
+buildModules()
